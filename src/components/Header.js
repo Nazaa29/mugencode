@@ -2,6 +2,7 @@ import { FaGithub, FaTwitter, FaLinkedin } from "react-icons/fa";
 import logo from "../assets/images/logo.png";
 import styles from "../assets/styles/globals.css";
 
+
 const Header = () => {
   return (
     <header className="bg-dark-custom">
