@@ -2,6 +2,7 @@ import { FaGithub, FaTwitter, FaLinkedin } from 'react-icons/fa';
 import logo from '../assets/images/logo.png'
 
 
+
 const Header = () => {
     return <header>
         <div className='logo'>
