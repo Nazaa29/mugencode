@@ -1,13 +1,12 @@
-import Header from './components/Header';
-import './App.css';
-import { Fragment } from 'react';
+import Header from "./components/Header";
+import "./assets/styles/globals.css";
+import { Fragment } from "react";
 
 function App() {
   return (
     <Fragment>
-      <Header/>
+      <Header />
     </Fragment>
-    
   );
 }
 

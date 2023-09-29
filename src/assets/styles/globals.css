@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.custom-dark-bg {
+  @apply bg-dark-custom;
+}
+
+.custom-teal-bg {
+  @apply bg-teal-custom;
+}
+
+.custom-blue-bg {
+  @apply bg-blue-custom;
+}
+
+.custom-red-bg {
+  @apply bg-red-custom;
+}
