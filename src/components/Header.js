@@ -1,9 +1,11 @@
 import { FaGithub, FaTwitter, FaLinkedin } from 'react-icons/fa';
+import logo from '../assets/images/logo.png'
+
 
 const Header = () => {
     return <header>
         <div className='logo'>
-            <img src='../assets/images/logo.png' alt='Logo' />
+            <img src={logo} alt='Logo' />
         </div>
         <div className="social-icons">
             <a href="https://github.com/Nazaa29/mugencode" target="_blank" rel="noopener noreferrer">
