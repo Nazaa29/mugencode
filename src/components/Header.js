@@ -1,6 +1,5 @@
 import { FaGithub, FaTwitter, FaLinkedin } from "react-icons/fa";
 import logo from "../assets/images/logo.png";
-import { Fragment } from "react";
 
 const Header = () => {
   return (
@@ -35,8 +34,6 @@ const Header = () => {
         </a>
       </div>
     </header>
-    <div className="bg-red-custom w-full h-1"></div>
-    </Fragment>
   );
 };
 
