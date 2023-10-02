@@ -3,11 +3,7 @@ import logo from "../assets/images/logo.png";
 
 const Header = () => {
   return (
-<<<<<<< HEAD
     <header className="bg-dark-custom text-white py-2 px-8 flex items-center justify-between border-b border-red-custom">
-=======
-    <header className="bg-dark-custom text-white py-2 px-8 flex items-center justify-between">
->>>>>>> bf634270bf98ed4c956dac0bf33c492a3ef59404
       <div className="logo w-32">
         <img src={logo} alt="Logo" className="w-24 h-16 ml-12" />
       </div>
