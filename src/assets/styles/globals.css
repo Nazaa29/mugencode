@@ -17,3 +17,6 @@
 .custom-red-bg {
   @apply bg-red-custom;
 }
+.custom-white-bg {
+  @apply bg-gray-custom;
+}
