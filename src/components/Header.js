@@ -3,8 +3,8 @@ import logo from "../assets/images/logo.png";
 
 const Header = () => {
   return (
-    <header className="bg-dark-custom text-white py-2 px-8 flex items-center justify-between">
-      <div className="logo w=100">
+    <header className="bg-dark-custom text-white py-2 px-8 flex items-center justify-between border-b border-red-custom">
+      <div className="logo w-32">
         <img src={logo} alt="Logo" className="w-24 h-16 ml-12" />
       </div>
       <div className="social-icons flex">
