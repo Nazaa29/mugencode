@@ -6,10 +6,7 @@ const About = () => {
       {/* Línea vertical */}
       <div className="absolute top-8 bottom-0 left-14 bg-black w-1px"></div>
       {/* Línea horizontal */}
-      <div
-        style={{ height: "1px" }}
-        className="absolute top-16 left-24 right-24 h-0.5 bg-black"
-      ></div>
+      <div className="absolute top-16 left-24 right-24  bg-black h-1px"></div>
 
       {/* Contenido */}
       <div className="absolute left-16 top-16">
