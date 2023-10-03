@@ -6,8 +6,7 @@ const About = () => {
     <div className="relative flex p-8 bg-gray-custom h-screen border-t border-black">
       {/* Línea vertical */}
       <div
-        style={{ width: "1px" }}
-        className="absolute top-8 bottom-0 left-14 w-0.5 bg-black"
+        className="absolute top-8 bottom-0 left-14 w-0.5 bg-black w-1px"
       ></div>
       {/* Línea horizontal */}
       <div

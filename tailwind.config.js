@@ -6,7 +6,6 @@ module.exports = {
   },
   theme: {
     container: {
-      width: "0.5px",
       center: true,
       padding: "2rem",
       screens: {
@@ -14,6 +13,10 @@ module.exports = {
       },
     },
     extend: {
+      width: {
+        '1px': '1px',
+        '2px': '2px'
+      },
       colors: {
         gray: {
           custom: "#DDDDDD",

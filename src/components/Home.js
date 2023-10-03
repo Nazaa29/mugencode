@@ -3,7 +3,6 @@ import React from "react";
 
 const Home = (props) => {
   const dynamicHeight = `calc(100vh - ${props.headerHeight}px)`;
-  console.log(dynamicHeight)
   
   return <div className='w-full bg-dark-custom flex flex-col justify-center items-center' style={{ minHeight: dynamicHeight }}>
     <div>
