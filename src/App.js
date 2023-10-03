@@ -5,12 +5,21 @@ import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import "./assets/styles/globals.css";
 import { Fragment } from "react";
+import { useState } from "react";
 
 function App() {
+
+  const [headerHeight, setHeaderHeight] = useState(0);
+
+  // Función para actualizar la altura del encabezado en App.js
+  const handleHeaderHeightChange = (height) => {
+    setHeaderHeight(height);
+  };
+
   return (
     <Fragment>
-      <Header />
-      <Home />
+      <Header onHeaderHeightChange={handleHeaderHeightChange} />
+      <Home headerHeight={headerHeight}/>
       <About />
       <Projects />
       <Contact />
