@@ -20,3 +20,9 @@
 .custom-white-bg {
   @apply bg-gray-custom;
 }
+@font-face {
+  font-family: "Tungsten";
+  src: url("/public/Tungstenfont/Tungsten-Bold/Tungsten-Bold.ttf")
+    format("truetype");
+  font-style: normal;
+}

@@ -14,8 +14,20 @@ module.exports = {
     },
     extend: {
       width: {
-        '1px': '1px',
-        '2px': '2px'
+        "1px": "1px",
+        "2px": "2px",
+        120: "30rem",
+        144: "36rem",
+        180: "42rem",
+        200: "50rem",
+        240: "60rem",
+      },
+      height: {
+        120: "30rem",
+        144: "36rem",
+        180: "42rem",
+        200: "50rem",
+        240: "60rem",
       },
       colors: {
         gray: {
@@ -35,7 +47,9 @@ module.exports = {
         },
         // ...mas colores
       },
-      fontFamily: {},
+      fontFamily: {
+        tungsten: ["Tungsten", "sans"],
+      },
       boxShadow: {},
       backgroundImage: {},
       screens: {
