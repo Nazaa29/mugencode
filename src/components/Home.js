@@ -1,10 +1,7 @@
-import React from "react";
-
-
 const Home = (props) => {
   const dynamicHeight = `calc(100vh - ${props.headerHeight}px)`;
   
-  return <div className='w-full bg-dark-custom flex flex-col justify-center items-center' style={{ minHeight: dynamicHeight }}>
+  return <section className='w-full bg-dark-custom flex flex-col justify-center items-center' style={{ minHeight: dynamicHeight }}>
     <div>
       <h1 className="text-7xl">MUGENCODE ™</h1>
       <div className="flex flex-col items-start">
@@ -13,7 +10,7 @@ const Home = (props) => {
       </div>
       <p className="ml-6 mt-2 text-xl font-semibold">Web Developers</p>
     </div>
-  </div>
+  </section>
 
 };
 

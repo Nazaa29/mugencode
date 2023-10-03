@@ -1,9 +1,8 @@
-import React from "react";
 import gif from "../assets/images/coding.gif";
 
 const About = () => {
   return (
-    <div className="relative flex p-8 bg-gray-custom h-screen border-t border-black">
+    <section className="relative flex p-8 bg-gray-custom h-screen border-t border-black">
       {/* Línea vertical */}
       <div
         className="absolute top-8 bottom-0 left-14 bg-black w-1px"
@@ -28,7 +27,7 @@ const About = () => {
       <div className="absolute right-8 bottom-16">
         <img src={gif} alt="codigo" className="w-3/4" />
       </div>
-    </div>
+    </section>
   );
 };
 

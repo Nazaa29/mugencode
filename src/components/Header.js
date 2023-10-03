@@ -1,6 +1,6 @@
 import { FaGithub, FaTwitter, FaLinkedin } from "react-icons/fa";
 import logo from "../assets/images/logo.png";
-import React, { useState, useEffect, useRef} from "react";
+import { useState, useEffect, useRef} from "react";
 
 const Header = (props) => {
 
