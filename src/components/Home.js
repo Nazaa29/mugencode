@@ -7,8 +7,8 @@ const Home = (props) => {
 
   return (
     <section
-      className="w-full bg-dark-custom flex flex-col justify-center items-center relative"
-      style={{ height: dynamicHeight }}
+      className="w-full bg-dark-custom flex flex-col justify-center items-center relative" // Agrega la clase 'relative'
+      style={{ maxHeight: dynamicHeight }}
     >
       <div className="w-full h-full relative flex-shrink-0 z-0">
         <ParticleScene />
