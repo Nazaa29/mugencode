@@ -13,7 +13,7 @@ const About = () => {
         <h1 className="text-6xl font-bold uppercase mt-10 ml-7 font-tungsten">
           About Us
         </h1>
-        <p className="mt-4 font-tungsten">
+        <p className="mt-4 font-sourceCodePro">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem
           ipsum

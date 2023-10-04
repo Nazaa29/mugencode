@@ -61,6 +61,8 @@ module.exports = {
       },
       fontFamily: {
         tungsten: ["Tungsten", "sans"],
+        workSans:['Work Sans'],
+        sourceCodePro:['Source Code Pro']
       },
       boxShadow: {},
       backgroundImage: {},
