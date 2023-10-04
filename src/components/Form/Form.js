@@ -3,10 +3,10 @@ import Button from '../Button';
 
 
 const Form = () => {
-    const inputStyle = 'relative p-15px w-full border relative';
-    const labelStyle = 'absolute ml-2 text-neutral-950 text-sm z-10';
+    const inputStyle = 'w-full p-[10px] outline-none border border-gray-custom bg-dark-custom text-white text-[1em]';
+    const labelStyle = 'absolute left-1 p-[10px] pointer-events-none text-white uppercase';
 
-    return (
+    return (    
         <div className="max-w-md mx-auto w-full">
             <form>
                 <Input label="Nombre" type="text" inputStyle={inputStyle} labelStyle={labelStyle}/>
