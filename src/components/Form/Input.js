@@ -18,7 +18,7 @@ const Input = ({ label, type, inputStyle, labelStyle}) => {
     }
     console.log(inputRef)
 
-    const labelDynamic=' text-red-custom translate-x-[10px] translate-y-[-9px] text-[0.75em] p-[0_10px] bg-dark-custom border-l-[1px] border-red-custom border-r-[1px] tracking-[0.25em]';
+    const labelDynamic=' text-red-custom translate-x-[10px] translate-y-[-9px] text-[0.75em] py-[0] px-[10px] bg-dark-custom border-l-[1px] border-red-custom border-r-[1px] tracking-[0.25em]';
 
     return (
         <div className="mb-4 relative">
