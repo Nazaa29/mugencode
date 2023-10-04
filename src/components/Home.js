@@ -7,10 +7,10 @@ const Home = (props) => {
 
   return (
     <section
-      className="w-full bg-dark-custom flex flex-col justify-center items-center relative" // Agrega la clase 'relative'
-      style={{ maxHeight: dynamicHeight }}
+      className="w-full flex bg-dark-custom justify-center items-center relative" // Agrega la clase 'relative'
+      style={{ height: dynamicHeight }}
     >
-      <div className="w-full h-full relative flex-shrink-0 z-0">
+      <div className="w-full h-full relative flex-shrink-0">
         <ParticleScene />
       </div>
       <div className="z-10 absolute inset-0 flex flex-col justify-center items-center">
