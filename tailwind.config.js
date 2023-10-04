@@ -21,6 +21,16 @@ module.exports = {
         180: "42rem",
         200: "50rem",
         240: "60rem",
+        "50%":"50%",
+      },
+      padding:{
+        '15px':'15px'
+      },
+      borderRadius:{
+        '4px':'4px',
+      },
+      top:{
+        '50%':'50%'
       },
       height: {
         "1px": "1px",
