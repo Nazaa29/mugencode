@@ -7,10 +7,12 @@ const Home = (props) => {
 
   return (
     <section
-      className="w-full bg-dark-custom flex flex-col justify-center items-center relative" // Agrega la clase 'relative'
-      style={{ minHeight: dynamicHeight }}
+      className="w-full bg-dark-custom flex flex-col justify-center items-center relative"
+      style={{ height: dynamicHeight }}
     >
-      <ParticleScene />
+      <div className="w-full h-full relative flex-shrink-0 z-0">
+        <ParticleScene />
+      </div>
       <div className="z-10 absolute inset-0 flex flex-col justify-center items-center">
         <h1 className="text-7xl">MUGENCODE ™</h1>
         <div className="flex flex-col items-start">

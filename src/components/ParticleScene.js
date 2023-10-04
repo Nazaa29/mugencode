@@ -1,37 +1,35 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 
 const ParticleScene = () => {
   const containerRef = useRef();
+  const animationFrameIdRef = useRef();
+  const [isReady, setIsReady] = useState(true); // Nuevo estado para controlar la visibilidad
 
   useEffect(() => {
     console.log("ParticleScene renderizado");
     const container = containerRef.current;
-    const camera = new THREE.PerspectiveCamera(
-      45,
-      window.innerWidth / window.innerHeight,
-      1,
-      4000
-    );
-    camera.position.z = 1750;
+    let { offsetWidth: width, offsetHeight: height } = container;
+    let aspectRatio = width / height;
+    const camera = new THREE.PerspectiveCamera(45, aspectRatio, 1, 4000);
+    camera.position.z = Math.min(width, height) / 2;
 
     const scene = new THREE.Scene();
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setClearColor(0x000000, 0);
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    console.log("Adding canvas to DOM", renderer.domElement);
+    renderer.setSize(width, height);
     container.appendChild(renderer.domElement);
 
     const group = new THREE.Group();
     scene.add(group);
 
-    const particleCount = 50; // Reduced particle count
+    const particleCount = 50;
     const segments = (particleCount * (particleCount - 1)) / 2;
     const positions = new Float32Array(segments * 3);
     const colors = new Float32Array(segments * 3);
 
     const particlesData = [];
-    const r = 800;
+    const r = Math.min(width, height) / 2;
     const rHalf = r / 2;
 
     const particles = new THREE.BufferGeometry();
@@ -47,9 +45,9 @@ const ParticleScene = () => {
 
       particlesData.push({
         velocity: new THREE.Vector3(
-          (-1 + Math.random() * 2) * 2, // Multiplicado por 3
-          (-1 + Math.random() * 2) * 2, // Multiplicado por 3
-          (-1 + Math.random() * 2) * 2 // Multiplicado por 3
+          (-1 + Math.random() * 2) * 2,
+          (-1 + Math.random() * 2) * 2,
+          (-1 + Math.random() * 2) * 2
         ),
         numConnections: 0,
       });
@@ -97,18 +95,31 @@ const ParticleScene = () => {
     const linesMesh = new THREE.LineSegments(geometry, material);
     group.add(linesMesh);
 
+    function updateSize() {
+      console.log("updateSize called");
+      // Actualizar las dimensiones
+      ({ offsetWidth: width, offsetHeight: height } = container);
+      aspectRatio = width / height;
+      camera.aspect = aspectRatio;
+      camera.updateProjectionMatrix();
+      renderer.setSize(width, height);
+      camera.position.z = Math.min(width, height) / 2;
+    }
+
     function animate() {
+      console.log("animate called");
+      let halfWidth = width / 2;
+      let halfHeight = height / 2;
       for (let i = 0; i < particleCount; i++) {
-        // Revisar si las partículas están fuera de los límites y en caso afirmativo, invertir su dirección
         if (
-          particlePositions[i * 3] > rHalf ||
-          particlePositions[i * 3] < -rHalf
+          particlePositions[i * 3] > halfWidth ||
+          particlePositions[i * 3] < -halfWidth
         ) {
           particlesData[i].velocity.x = -particlesData[i].velocity.x;
         }
         if (
-          particlePositions[i * 3 + 1] > rHalf ||
-          particlePositions[i * 3 + 1] < -rHalf
+          particlePositions[i * 3 + 1] > halfHeight ||
+          particlePositions[i * 3 + 1] < -halfHeight
         ) {
           particlesData[i].velocity.y = -particlesData[i].velocity.y;
         }
@@ -119,10 +130,14 @@ const ParticleScene = () => {
           particlesData[i].velocity.z = -particlesData[i].velocity.z;
         }
 
-        // Actualizar las posiciones de las partículas
         particlePositions[i * 3] += particlesData[i].velocity.x;
         particlePositions[i * 3 + 1] += particlesData[i].velocity.y;
         particlePositions[i * 3 + 2] += particlesData[i].velocity.z;
+      }
+
+      // Reset numConnections for every particle
+      for (let i = 0; i < particleCount; i++) {
+        particlesData[i].numConnections = 0;
       }
 
       let vertexpos = 0;
@@ -155,6 +170,9 @@ const ParticleScene = () => {
             colors[colorpos++] = 1;
             colors[colorpos++] = 1;
 
+            particlesData[i].numConnections++;
+            particlesData[j].numConnections++;
+
             numConnected++;
           }
         }
@@ -167,21 +185,20 @@ const ParticleScene = () => {
 
       renderer.render(scene, camera);
       console.log(numConnected); // Log the number of connections
-      requestAnimationFrame(animate);
+      animationFrameIdRef.current = requestAnimationFrame(animate);
     }
 
-    animate();
+    setTimeout(() => {
+      updateSize();
+      animate();
+      setIsReady(true);
+    }, 0);
 
-    function onWindowResize() {
-      camera.aspect = window.innerWidth / window.innerHeight;
-      camera.updateProjectionMatrix();
-      renderer.setSize(window.innerWidth, window.innerHeight);
-    }
-
-    window.addEventListener("resize", onWindowResize);
+    window.addEventListener("resize", updateSize); // Escuchar el evento de redimensionamiento
 
     return () => {
-      window.removeEventListener("resize", onWindowResize);
+      cancelAnimationFrame(animationFrameIdRef.current);
+      window.removeEventListener("resize", updateSize); // Limpiar el listener del evento
       renderer.dispose();
       geometry.dispose();
       material.dispose();
@@ -193,7 +210,13 @@ const ParticleScene = () => {
     };
   }, []);
 
-  return <div ref={containerRef} style={{ width: "100%", height: "100%" }} />;
+  return (
+    <div
+      ref={containerRef}
+      style={{ width: "100%", height: "100%" }}
+      className={isReady ? "visible" : "hidden"} // Controlar la visibilidad
+    />
+  );
 };
 
 export default ParticleScene;
