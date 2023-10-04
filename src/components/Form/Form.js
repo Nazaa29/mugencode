@@ -5,7 +5,7 @@ import { useState, useRef } from "react";
 const Form = () => {
     const inputStyle = 'w-full p-[10px] outline-none border border-gray-custom bg-dark-custom text-white text-[1em] ';
     const labelStyle = 'absolute left-1 py-[10px] px-[10px] pointer-events-none duration-300 uppercase';
-    const textareaStyle = 'w-full px-3 h-64 py-2 outline-none border border-gray-custom bg-dark-custom text-white text-[1em] resize-none';
+    const textareaStyle = 'w-full px-3 h-64 py-2  outline-none border border-gray-custom bg-dark-custom text-white text-[1em] resize-none';
 
     const [isFocused, setIsFocused] = useState(false);
     const inputRef=useRef(null);
@@ -24,7 +24,7 @@ const Form = () => {
     }
     console.log(inputRef)
 
-    const labelDynamic=' text-red-custom translate-x-[10px] translate-y-[-9px] text-[0.75em] py-[0] px-[10px] bg-dark-custom border-l-[1px] border-red-custom border-r-[1px] tracking-[0.25em]';
+    const labelDynamic=' text-red-custom translate-x-[10px] translate-y-[-9px] text-[0.75em] py-[0px] px-[10px] bg-dark-custom border-l-[1px] border-red-custom border-r-[1px] tracking-[0.25em]';
 
     return (    
         <div className="max-w-md mx-auto w-full">
