@@ -1,113 +1,67 @@
 .button {
+    flex: flex;
+    margin: 10px;
+    padding: 20px;
+    border: 1px solid #DDDDDD;
+    text-align: center;
+    text-transform: uppercase;
     position: relative;
-    padding: 1em 1.5em;
-    border: none;
-    background-color: transparent;
+    overflow: hidden;
+    transition: .3s;
+    color: #DDDDDD;
+}
+
+.button::after {
+    position: absolute;
+    transition: .3s;
+    content: '';
+    width: 0;
+    left: 50%;
+    bottom: 0;
+    height: 3px;
+    background: #F05454;
+}
+
+.type::after {
+    height: 120%;
+    left: -10%;
+    transform: skewX(15deg);
+    z-index: -1;
+}
+
+/* En lugar de &:nth-of-type(5):hover */
+.type:hover {
     cursor: pointer;
-    outline: none;
-    font-size: 18px;
-    margin: 1em 0.8em;
+    color: black;
 }
 
-.type3 {
-    color: #F05454;
+/* En lugar de &:nth-of-type(5) */
+
+/* En lugar de &:nth-of-type(5):after */
+.type:hover::after {
+    left: -10%;
+    width: 120%;
 }
 
-/* Effect three */
-
-.type3::after,
-.type3::before {
-    content: '';
-    display: block;
-    position: absolute;
-    width: 20%;
-    height: 20%;
-    border: 2px solid;
-    transition: all 0.6s ease;
-    border-radius: 2px;
-}
-
-.type3::after {
-    bottom: 0;
-    right: 0;
-    border-top-color: transparent;
-    border-left-color: transparent;
-    border-bottom-color: #F05454;
-    /* Supongo que $color3 es #F05454 */
-    border-right-color: #F05454;
-    /* Supongo que $color3 es #F05454 */
-}
-
-.type3::before {
-    top: 0;
+.svg {
+    height: 45px;
     left: 0;
-    border-bottom-color: transparent;
-    border-right-color: transparent;
-    border-top-color: #F05454;
-    /* Supongo que $color3 es #F05454 */
-    border-left-color: #F05454;
-    /* Supongo que $color3 es #F05454 */
-}
-
-.type3:hover::after,
-.type3:hover::before {
-    border-bottom-color: #F05454;
-    /* Supongo que $color3 es #F05454 */
-    border-right-color: #F05454;
-    /* Supongo que $color3 es #F05454 */
-    border-top-color: #F05454;
-    /* Supongo que $color3 es #F05454 */
-    border-left-color: #F05454;
-    /* Supongo que $color3 es #F05454 */
+    position: absolute;
+    top: 0;
     width: 100%;
-    height: 100%;
 }
 
-
-/* Estilo base para .type1 */
-.type1 {
-    color: #F05454;
-    /* Supongo que #F05454 es una variable CSS definida */
+.rect {
+    fill: none;
+    stroke: #fff;
+    stroke-width: 2;
+    stroke-dasharray: 422, 0;
+    transition: all 0.35s linear;
 }
 
-/* Efecto one */
-.type1::after,
-.type1::before {
-    content: '';
-    display: block;
-    position: absolute;
-    width: 20%;
-    height: 20%;
-    border: 2px solid;
-    transition: all 0.6s ease;
-    border-radius: 2px;
-}
-
-.type1::after {
-    bottom: 0;
-    right: 0;
-    border-top-color: transparent;
-    border-left-color: transparent;
-    border-bottom-color: #F05454;
-    /* Supongo que #F05454 es una variable CSS definida */
-    border-right-color: #F05454;
-    /* Supongo que #F05454 es una variable CSS definida */
-}
-
-.type1::before {
-    top: 0;
-    left: 0;
-    border-bottom-color: transparent;
-    border-right-color: transparent;
-    border-top-color: #F05454;
-    /* Supongo que #F05454 es una variable CSS definida */
-    border-left-color: #F05454;
-    /* Supongo que #F05454 es una variable CSS definida */
-}
-
-/* Efecto de hover para .type1 */
-.type1:hover::after,
-.type1:hover::before {
-    width: 105%;
-    height: 108%;
+.rect:hover {
+    stroke-width: 5;
+    stroke-dasharray: 15, 310;
+    stroke-dashoffset: 48;
+    transition: all 1.35s cubic-bezier(0.19, 1, 0.22, 1);
 }
