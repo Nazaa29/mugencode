@@ -30,10 +30,10 @@ const Form = () => {
 
     return (    
         <div className="max-w-md mx-auto w-full">
-            <form>
+            <form className="flex flex-col items-center">
                 <Input label="Nombre" type="text" inputStyle={inputStyle} labelStyle={labelStyle} />
                 <Input label="Email" type="email" inputStyle={inputStyle} labelStyle={labelStyle} />
-                <div className="mb-4 relative pt-4">
+                <div className="mb-4 relative pt-4 w-full">
                     <label className={`${labelStyle} ${isFocused ? labelDynamic : 'text-gray-custom'} ${pyClass}`}>Your Idea</label>
                     <textarea
                         className={`${textareaStyle} ${isFocused ? 'border-red-custom' : 'border-gray-custom'}`}

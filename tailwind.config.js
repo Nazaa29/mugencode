@@ -23,6 +23,7 @@ module.exports = {
         240: "60rem",
         "50%":"50%",
       },
+      
       padding:{
         '15px':'15px'
       },
@@ -77,6 +78,8 @@ module.exports = {
     "!duration-[0ms]",
     "!delay-[0ms]",
     'html.js :where([class*="taos:"]:not(.taos-init))',
+    'hover:opacity-100', // Agregar clases de hover necesarias aquí
+    'hover:translate-x-full', // Agregar más clases de hover si es necesario
   ],
   plugins: [
     require("tailwindcss-animate"),
