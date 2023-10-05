@@ -21,17 +21,18 @@ module.exports = {
         180: "42rem",
         200: "50rem",
         240: "60rem",
-        "50%":"50%",
+        "50%": "50%",
+        "7/12": "58.333333%",
       },
-      
-      padding:{
-        '15px':'15px'
+
+      padding: {
+        "15px": "15px",
       },
-      borderRadius:{
-        '4px':'4px',
+      borderRadius: {
+        "4px": "4px",
       },
-      top:{
-        '50%':'50%'
+      top: {
+        "50%": "50%",
       },
       height: {
         "1px": "1px",
@@ -62,8 +63,8 @@ module.exports = {
       },
       fontFamily: {
         tungsten: ["Tungsten", "sans"],
-        workSans:['Work Sans'],
-        sourceCodePro:['Source Code Pro']
+        workSans: ["Work Sans"],
+        sourceCodePro: ["Source Code Pro"],
       },
       boxShadow: {},
       backgroundImage: {},
@@ -78,8 +79,8 @@ module.exports = {
     "!duration-[0ms]",
     "!delay-[0ms]",
     'html.js :where([class*="taos:"]:not(.taos-init))',
-    'hover:opacity-100', // Agregar clases de hover necesarias aquí
-    'hover:translate-x-full', // Agregar más clases de hover si es necesario
+    "hover:opacity-100", // Agregar clases de hover necesarias aquí
+    "hover:translate-x-full", // Agregar más clases de hover si es necesario
   ],
   plugins: [
     require("tailwindcss-animate"),

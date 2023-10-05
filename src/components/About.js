@@ -7,12 +7,26 @@ const About = () => {
       <div className="absolute top-16 left-24 right-24  bg-black h-1px"></div>
 
       {/* Contenido */}
-      <div className="absolute left-16 top-16">
-        <h1 className="text-6xl font-bold uppercase mt-10 ml-7 font-tungsten">
+      <div className="absolute left-40 top-24 w-7/12">
+        <h1 className="text-6xl font-bold uppercase mt-10 ml-7 font-tungsten tracking-wider">
           About Us
         </h1>
-        <p className="mt-4 font-sourceCodePro">
+        <p className="mt-4 ml-7 font-sourceCodePro">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem
+          ipsum.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem
+          ipsumLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem
+          ipsumLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem
+          ipsumLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem
+          ipsumLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem
+          ipsumLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem
+          ipsumLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem
           ipsum
         </p>
