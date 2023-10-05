@@ -4,15 +4,24 @@ import * as THREE from "three";
 const ParticleScene = () => {
   const containerRef = useRef();
   const animationFrameIdRef = useRef();
-  const [isReady, setIsReady] = useState(true); // Nuevo estado para controlar la visibilidad
+  const [isReady, setIsReady] = useState(true);
 
   useEffect(() => {
+    let halfWidth, halfHeight, halfDepth;
     console.log("ParticleScene renderizado");
     const container = containerRef.current;
     let { offsetWidth: width, offsetHeight: height } = container;
     let aspectRatio = width / height;
-    const camera = new THREE.PerspectiveCamera(45, aspectRatio, 1, 4000);
-    camera.position.z = Math.min(width, height) / 2;
+    const camera = new THREE.OrthographicCamera(
+      -width / 2,
+      width / 2,
+      height / 2,
+      -height / 2,
+      1,
+      2000
+    );
+    camera.position.set(0, 0, 1000);
+    camera.lookAt(0, 0, 0);
 
     const scene = new THREE.Scene();
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
@@ -23,14 +32,13 @@ const ParticleScene = () => {
     const group = new THREE.Group();
     scene.add(group);
 
-    const particleCount = 50;
+    const particleCount = 150;
     const segments = (particleCount * (particleCount - 1)) / 2;
     const positions = new Float32Array(segments * 3);
     const colors = new Float32Array(segments * 3);
 
     const particlesData = [];
     const r = Math.min(width, height) / 2;
-    const rHalf = r / 2;
 
     const particles = new THREE.BufferGeometry();
     const particlePositions = new Float32Array(particleCount * 3);
@@ -45,9 +53,9 @@ const ParticleScene = () => {
 
       particlesData.push({
         velocity: new THREE.Vector3(
-          (-1 + Math.random() * 2) * 2,
-          (-1 + Math.random() * 2) * 2,
-          (-1 + Math.random() * 2) * 2
+          (-1 + Math.random() * 2) * 1,
+          (-1 + Math.random() * 2) * 1,
+          (-1 + Math.random() * 2) * 1
         ),
         numConnections: 0,
       });
@@ -95,6 +103,20 @@ const ParticleScene = () => {
     const linesMesh = new THREE.LineSegments(geometry, material);
     group.add(linesMesh);
 
+    // Crear una geometría de caja que represente los límites
+    const boxGeometry = new THREE.BoxGeometry(
+      width,
+      height,
+      Math.min(width, height)
+    );
+    const boxMaterial = new THREE.MeshBasicMaterial({
+      color: 0xffff00,
+      wireframe: true,
+    });
+    const boundingBoxMesh = new THREE.Mesh(boxGeometry, boxMaterial);
+    boundingBoxMesh.position.set(0, 0, 0); // Posicionar en el centro
+    scene.add(boundingBoxMesh);
+
     function updateSize() {
       console.log("updateSize called");
       // Actualizar las dimensiones
@@ -103,14 +125,31 @@ const ParticleScene = () => {
       camera.aspect = aspectRatio;
       camera.updateProjectionMatrix();
       renderer.setSize(width, height);
-      camera.position.z = Math.min(width, height) / 2;
+
+      // Cambia la posicion de la camara
+      camera.position.set(0, 0, Math.max(width, height));
+      camera.lookAt(0, 0, 0);
+      camera.far = Math.max(width, height) * 2;
+      camera.bottom = -height / 2 - 92;
+      camera.updateProjectionMatrix();
+
+      // Actualizar los límites
+      halfWidth = width / 2;
+      halfHeight = height / 2;
+      halfDepth = Math.min(width, height) / 2;
+
+      boundingBoxMesh.geometry = new THREE.BoxGeometry(
+        width,
+        height,
+        Math.min(width, height)
+      );
     }
 
     function animate() {
       console.log("animate called");
-      let halfWidth = width / 2;
-      let halfHeight = height / 2;
+
       for (let i = 0; i < particleCount; i++) {
+        // Verifica si las partículas han alcanzado los bordes y cambia su dirección
         if (
           particlePositions[i * 3] > halfWidth ||
           particlePositions[i * 3] < -halfWidth
@@ -124,8 +163,8 @@ const ParticleScene = () => {
           particlesData[i].velocity.y = -particlesData[i].velocity.y;
         }
         if (
-          particlePositions[i * 3 + 2] > rHalf ||
-          particlePositions[i * 3 + 2] < -rHalf
+          particlePositions[i * 3 + 2] > halfDepth ||
+          particlePositions[i * 3 + 2] < -halfDepth
         ) {
           particlesData[i].velocity.z = -particlesData[i].velocity.z;
         }
@@ -134,7 +173,6 @@ const ParticleScene = () => {
         particlePositions[i * 3 + 1] += particlesData[i].velocity.y;
         particlePositions[i * 3 + 2] += particlesData[i].velocity.z;
       }
-
       // Reset numConnections for every particle
       for (let i = 0; i < particleCount; i++) {
         particlesData[i].numConnections = 0;
@@ -153,7 +191,7 @@ const ParticleScene = () => {
             particlePositions[i * 3 + 2] - particlePositions[j * 3 + 2];
           const dist = Math.sqrt(dx * dx + dy * dy + dz * dz);
 
-          if (dist < 100) {
+          if (dist < 250) {
             positions[vertexpos++] = particlePositions[i * 3];
             positions[vertexpos++] = particlePositions[i * 3 + 1];
             positions[vertexpos++] = particlePositions[i * 3 + 2];
@@ -194,11 +232,11 @@ const ParticleScene = () => {
       setIsReady(true);
     }, 0);
 
-    window.addEventListener("resize", updateSize); // Escuchar el evento de redimensionamiento
+    window.addEventListener("resize", updateSize);
 
     return () => {
       cancelAnimationFrame(animationFrameIdRef.current);
-      window.removeEventListener("resize", updateSize); // Limpiar el listener del evento
+      window.removeEventListener("resize", updateSize);
       renderer.dispose();
       geometry.dispose();
       material.dispose();
@@ -206,7 +244,8 @@ const ParticleScene = () => {
       pMaterial.dispose();
       pointCloud.geometry.dispose();
       linesMesh.geometry.dispose();
-      // ... other necessary cleanup ...
+      boundingBoxMesh.geometry.dispose();
+      boxMaterial.dispose();
     };
   }, []);
 
@@ -214,7 +253,7 @@ const ParticleScene = () => {
     <div
       ref={containerRef}
       style={{ width: "100%", height: "100%" }}
-      className={isReady ? "visible" : "hidden"} // Controlar la visibilidad
+      className={isReady ? "visible" : "hidden"}
     />
   );
 };

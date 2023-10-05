@@ -1,5 +1,3 @@
-import gif from "../assets/images/coding.gif";
-
 const About = () => {
   return (
     <section className="relative flex p-8 bg-gray-custom h-screen border-t border-black">
@@ -18,11 +16,6 @@ const About = () => {
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem
           ipsum
         </p>
-      </div>
-
-      {/* Gif */}
-      <div className="absolute right-0 top-64 w-240 h-240">
-        <img src={gif} alt="codigo" className="w-3/4" />
       </div>
     </section>
   );
