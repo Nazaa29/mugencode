@@ -1,14 +1,16 @@
 .button {
     flex: flex;
     margin: 10px;
-    padding: 20px;
+    padding: 17px;
     border: 1px solid #DDDDDD;
     text-align: center;
     text-transform: uppercase;
     position: relative;
     overflow: hidden;
+    width: 100%;
     transition: .3s;
     color: #DDDDDD;
+    z-index: 2;
 }
 
 .button::after {
@@ -44,11 +46,12 @@
 }
 
 .svg {
-    height: 45px;
+    height: 79px;
     left: 0;
     position: absolute;
-    top: 0;
-    width: 100%;
+    top: 0; 
+    width: 245px; 
+    z-index: 1;
 }
 
 .rect {

@@ -18,7 +18,7 @@ const Input = ({ label, type, inputStyle, labelStyle}) => {
     }
 
     const pyClass = isFocused ? 'py-[0px]' : 'py-[10px]';
-
+    
     const labelDynamic=' text-red-custom translate-x-[10px] translate-y-[-9px] text-[0.75em] px-[10px] bg-dark-custom border-l-[1px] border-red-custom border-r-[1px] tracking-[0.25em]';
 
     return (
