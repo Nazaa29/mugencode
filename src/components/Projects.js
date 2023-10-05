@@ -1,5 +1,9 @@
 const Projects = () => {
-  return <section>Projects</section>;
+  return (
+    <section className="h-screen bg-teal-custom ">
+      <div>Projects</div>
+    </section>
+  );
 };
 
 export default Projects;

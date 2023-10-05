@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 const Button = () => {
     return (
@@ -12,3 +12,4 @@ const Button = () => {
 }
 
 export default Button   
+export default Button

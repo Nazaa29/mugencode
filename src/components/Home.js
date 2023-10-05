@@ -2,7 +2,6 @@ import React from "react";
 import ParticleScene from "./ParticleScene"; // Asegúrate de que la ruta de importación sea correcta
 
 const Home = (props) => {
-  console.log("Renderizando Home");
   const dynamicHeight = `calc(100vh - ${props.headerHeight}px)`;
 
   return (
