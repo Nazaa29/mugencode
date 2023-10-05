@@ -6,10 +6,11 @@ const Button = () => {
             <div></div> {/* Linea horizontal top */}
             <div > {/* Contenedor boton y lineas verticales */}
                 <div></div> {/* Linea vertical izquierda */}
-                <button className="relative transition inline-flex items-center justify-center w-full h-14 bg-dark-custom text-white font-roboto text-20 font-semibold border-none cursor-pointer uppercase duration-300 ease-in-out overflow-hidden group">
-                    <span className="relative z-20 transition duration-300 ease-in-out">Enviar</span>
-                    <div className="absolute z-10 w-full h-full top-0 left-0 -translate-x-full transition-all duration-700 ease-in-out transform translate-x-0 group-hover:translate-x-full bg-blue-500"></div>
+                <button class="before:ease relative h-12 w-40 overflow-hidden border border-black shadow-2xl before:absolute before:left-0 before:-ml-2 before:h-48 before:w-48 before:origin-top-right before:-translate-x-full before:translate-y-12 before:-rotate-90 before:bg-gray-900 before:transition-all before:duration-300 hover:text-white hover:shadow-black hover:before:-rotate-180">
+                    <span class="relative z-10">Slide hover</span>
                 </button>
+                <button className='button type3'>prueba</button>
+                <button className='button type1'>prueba2</button>
                 <div></div> {/* Linea vertical derecha */}
             </div>
             <div></div> {/* Linea horizontal bottom */}
