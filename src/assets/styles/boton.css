@@ -1,71 +1,74 @@
 .button {
-  flex: flex;
-  margin: 10px;
-  padding: 17px;
-  border: 1px solid #dddddd;
-  text-align: center;
-  text-transform: uppercase;
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  transition: 0.3s;
-  color: #dddddd;
-  z-index: 2;
-  letter-spacing: 10px;
+    flex: flex;
+    margin: 10px;
+    padding: 17px;
+    border: 1px solid #dddddd;
+    text-align: center;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    transition: 0.3s;
+    color: #dddddd;
+    z-index: 2;
+    letter-spacing: 2px;
 }
 
 .button::after {
-  position: absolute;
-  transition: 0.3s;
-  content: "";
-  width: 0;
-  left: 50%;
-  bottom: 0;
-  height: 3px;
-  background: #f05454;
+    position: absolute;
+    transition: 0.3s;
+    content: "";
+    width: 0;
+    left: 50%;
+    bottom: 0;
+    height: 3px;
+    background: #f05454;
 }
 
 .type::after {
-  height: 120%;
-  left: -10%;
-  transform: skewX(15deg);
-  z-index: -1;
+    height: 120%;
+    left: -10%;
+    transform: skewX(15deg);
+    z-index: -1;
 }
 
 /* En lugar de &:nth-of-type(5):hover */
 .type:hover {
-  cursor: pointer;
-  color: black;
+    cursor: pointer;
+    color: black;
 }
 
 /* En lugar de &:nth-of-type(5) */
 
 /* En lugar de &:nth-of-type(5):after */
 .type:hover::after {
-  left: -10%;
-  width: 120%;
+    left: -10%;
+    width: 120%;
 }
 
 .svg {
-  height: 79px;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 245px;
-  z-index: 1;
+    height: 78px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 245px;
+    z-index: 1;
 }
 
 .rect {
-  fill: none;
-  stroke: #fff;
-  stroke-width: 2;
-  stroke-dasharray: 422, 0;
-  transition: all 0.35s linear;
+    fill: none;
+    stroke: #fff;
+    stroke-width: 1px;
+    stroke-dasharray: 422, 0;
+    transition: all 0.35s linear;
+    overflow: visible;
 }
 
+
+
 .buttonContainer:hover .rect {
-  stroke-width: 5;
-  stroke-dasharray: 15, 310;
-  stroke-dashoffset: 48;
-  transition: all 1.35s cubic-bezier(0.19, 1, 0.22, 1);
+    stroke-width: 3;
+    stroke-dasharray: 15, 310;
+    stroke-dashoffset: 48;
+    transition: all 1.35s cubic-bezier(0.19, 1, 0.22, 1);
 }
