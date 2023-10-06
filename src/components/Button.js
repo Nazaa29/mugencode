@@ -6,8 +6,8 @@ const Button = () => {
         <div className="w-[50%] relative buttonContainer">
             {" "}
             {/* Agregada clase buttonContainer */}
-            <button class="button type">Send</button>
-            <svg class="svg rect">
+            <button class="button">Send</button>
+            <svg class="rect">
                 <rect x="0" y="0" fill="none" width="100%" height="100%" />
             </svg>
         </div>

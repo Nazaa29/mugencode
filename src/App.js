@@ -1,8 +1,8 @@
-import Header from "./components/Header";
-import Home from "./components/Home";
-import About from "./components/About";
-import Projects from "./components/Projects";
-import Contact from "./components/Contact";
+import Header from "./components/Home/Header";
+import Home from "./components/Home/Home";
+import About from "./components/About/About";
+import Projects from "./components/Proyects/Projects";
+import Contact from "./components/Contact/Contact";
 import "./assets/styles/globals.css";
 import { Fragment } from "react";
 import { useState } from "react";
@@ -16,7 +16,7 @@ function App() {
     setHeaderHeight(height);
   };
 
-  return (
+  return (  
     <Fragment>
       <Header onHeaderHeightChange={handleHeaderHeightChange} />
       <Home headerHeight={headerHeight}/>

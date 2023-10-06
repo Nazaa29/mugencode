@@ -1,6 +1,6 @@
 const About = () => {
   return (
-    <section className="relative flex p-8 bg-gray-custom h-screen border-t border-black">
+    <section className="relative flex p-8 bg-gray-custom h-screen">
       {/* Línea vertical */}
       <div className="absolute top-8 bottom-0 left-14 bg-black w-1px"></div>
       {/* Línea horizontal */}
