@@ -1,3 +1,5 @@
+import Reveal from "../UI/Reveal";
+
 const About = () => {
   return (
     <section className="relative flex p-8 bg-gray-custom h-screen">
@@ -8,9 +10,13 @@ const About = () => {
 
       {/* Contenido */}
       <div className="absolute left-40 top-24 w-7/12">
-        <h1 className="text-6xl font-bold uppercase mt-10 ml-7 font-tungsten tracking-wider">
-          About Us
-        </h1>
+        <div class="" data-taos-offset="300"></div>
+        <Reveal>
+          <h1 className="text-6xl font-bold uppercase mt-10 ml-7 font-tungsten tracking-wider animate-fade">
+            About Us
+          </h1>
+        </Reveal>
+
         <p className="mt-4 ml-7 font-sourceCodePro">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem

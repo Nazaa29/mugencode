@@ -1,5 +1,5 @@
 import Input from "./Input";
-import Button from '../../Button';
+import Button from '../../UI/Button';
 import { useState, useRef } from "react";
 
 const Form = () => {
@@ -35,7 +35,7 @@ const Form = () => {
                 <Input label="Nombre" type="text" inputStyle={inputStyle} labelStyle={labelStyle} />
                 <Input label="Email" type="email" inputStyle={inputStyle} labelStyle={labelStyle} />
                 <div className=" relative pt-4 pb-[10px] w-full">
-                    <label className={`${labelStyle} ${isFocused ? labelDynamic : 'text-gray-custom'} ${pyClass}`}>Your Idea</label>
+                    <label className={`${labelStyle} ${isFocused ? labelDynamic : 'text-gray-custom'} ${pyClass}`}>Tu Idea</label>
                     <textarea
                         className={`${textareaStyle} ${isFocused ? 'border-red-custom' : 'border-gray-custom'}`}
                         rows="4"
