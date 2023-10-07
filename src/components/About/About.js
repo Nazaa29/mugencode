@@ -10,7 +10,7 @@ const About = () => {
 
       {/* Contenido */}
       <div className="absolute left-40 top-24 w-7/12">
-        <div class="" data-taos-offset="300"></div>
+        <div className="" data-taos-offset="300"></div>
         <Reveal>
           <h1 className="text-6xl font-bold uppercase mt-10 ml-7 font-tungsten tracking-wider animate-fade">
             About Us
