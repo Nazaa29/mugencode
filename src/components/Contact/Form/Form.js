@@ -10,8 +10,23 @@ const Form = () => {
   const textareaStyle =
     "w-full px-3 h-64 pt-2 outline-none border border-gray-custom bg-dark-custom text-white text-[1em] resize-none";
 
+  const [isEmailValid, setEmailValid] = useState(false);
   const [isFocused, setIsFocused] = useState(false);
+  const [isTouched, setIsTouched] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
   const inputRef = useRef(null);
+
+  const handleEmailInvalidChange = (isInvalid, isTouched) => {
+    setEmailValid(isInvalid);
+    setIsTouched(isTouched);
+
+    if (isTouched && !isInvalid) {
+      setErrorMessage('Correo electrónico no válido');
+    } else {
+      setErrorMessage('');
+    }
+    console.log(isEmailValid);
+  };
 
   const focusHandler = () => {
     setIsFocused(true);
@@ -41,7 +56,6 @@ const Form = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
 
     const response = await fetch("https://formspree.io/f/mvojvyla", {
       method: "POST",
@@ -52,7 +66,7 @@ const Form = () => {
     });
 
     if (response.ok) {
-      const responseData = await response.json(); // Agrega esta línea para capturar la respuesta
+      const responseData = await response.json();
       console.log(responseData);
       alert("Tu idea ha sido enviada, gracias por tomar el paso!");
       setFormData({
@@ -61,9 +75,7 @@ const Form = () => {
         mensaje: "",
       });
     } else {
-      alert(
-        "Hubo un problema al enviar tu idea. Por favor, intentalo de nuevo"
-      );
+      alert("Hubo un problema al enviar tu idea. Por favor, inténtalo de nuevo");
     }
   };
 
@@ -82,35 +94,36 @@ const Form = () => {
           type="text"
           inputStyle={inputStyle}
           labelStyle={labelStyle}
-          name="nombre" //Prop name
-          value={formData.nombre} // Valor del prop
-          onChange={handleChange} //Agrega la prop onChange
+          name="nombre"
+          value={formData.nombre}
+          onChange={handleChange}
+          onInvalidChange={handleEmailInvalidChange}
         />
+        {isTouched && <p className="text-red-custom">{errorMessage}</p>}
         <Input
           label="Email"
           type="email"
           inputStyle={inputStyle}
           labelStyle={labelStyle}
-          name="email" // Agrega la prop name
-          value={formData.email} // Agrega la prop value
-          onChange={handleChange} // Agrega la prop onChange
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
+          onInvalidChange={handleEmailInvalidChange}
         />
-        <div className=" relative pt-4 pb-[10px] w-full">
+        <div className="relative pt-4 pb-[10px] w-full">
           <label
-            className={`${labelStyle} ${
-              isFocused ? labelDynamic : "text-gray-custom"
-            } ${pyClass}`}
+            className={`${labelStyle} ${isFocused ? labelDynamic : "text-gray-custom"
+              } ${pyClass}`}
           >
             Tu Idea
           </label>
           <textarea
-            className={`${textareaStyle} ${
-              isFocused ? "border-red-custom" : "border-gray-custom"
-            }`}
+            className={`${textareaStyle} ${isFocused ? "border-red-custom" : "border-gray-custom"
+              }`}
             rows="4"
-            name="mensaje" // Agrega la prop name
-            value={formData.mensaje} // Agrega la prop value
-            onChange={handleChange} // Agrega la prop onChange
+            name="mensaje"
+            value={formData.mensaje}
+            onChange={handleChange}
             ref={inputRef}
             onBlur={blurHandler}
             onFocus={focusHandler}
