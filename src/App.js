@@ -6,9 +6,9 @@ import Contact from "./components/Contact/Contact";
 import "./assets/styles/globals.css";
 import { Fragment } from "react";
 import { useState } from "react";
+import { useEffect } from "react";
 
 function App() {
-
   const [headerHeight, setHeaderHeight] = useState(0);
 
   // Función para actualizar la altura del encabezado en App.js
@@ -16,10 +16,14 @@ function App() {
     setHeaderHeight(height);
   };
 
-  return (  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  return (
     <Fragment>
       <Header onHeaderHeightChange={handleHeaderHeightChange} />
-      <Home headerHeight={headerHeight}/>
+      <Home headerHeight={headerHeight} />
       <About />
       <Projects />
       <Contact />
