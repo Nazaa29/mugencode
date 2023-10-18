@@ -1,4 +1,6 @@
 import { useState, useRef, useEffect } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faExclamationCircle } from "@fortawesome/free-solid-svg-icons";
 
 const Input = ({
   label,
@@ -15,21 +17,23 @@ const Input = ({
   const [enteredEmail, setEmail] = useState('');
   const [isTouched, setIsTouched] = useState(false);
   const [blurEvent, setBlurEvent] = useState(false);
+  const [isInvalid, setInvalid] = useState(false);
 
   useEffect(() => {
     if (type === 'email' && isTouched && blurEvent) {
+
       const isValidEmail = (email) => {
         const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
         return emailRegex.test(email);
       };
 
       if (!isValidEmail(enteredEmail)) {
-        onInvalidChange(false, isTouched);
+        setInvalid(true)
       } else {
-        onInvalidChange(true, isTouched);
+        setInvalid(false);
       }
     }
-  }, [enteredEmail, isTouched, type, onInvalidChange, blurEvent]);
+  }, [enteredEmail, isTouched, type, onInvalidChange, blurEvent])
 
   const focusHandler = () => {
     setIsFocused(true);
@@ -37,12 +41,14 @@ const Input = ({
     setBlurEvent(false);
   };
 
+
+
   const changeHandler = (event) => {
     if (type === 'email') {
-      setEmail(event.target.value);
+      setEmail(event.target.value)
     }
     onChange(event);
-  };
+  }
 
   const blurHandler = () => {
     if (inputRef.current.value.trim() === "") {
@@ -53,21 +59,23 @@ const Input = ({
     setBlurEvent(true);
   };
 
+
   const pyClass = isFocused ? "py-[0px]" : "py-[10px]";
 
   const labelDynamic =
-    " text-red-custom translate-x-[10px] translate-y-[-9px] text-[0.75em] px-[10px] bg-dark-custom border-l-[1px] border-red-custom border-r-[1px] tracking-[0.25em]";
+    "text-red-custom translate-x-[10px] translate-y-[-9px] text-[0.75em] px-[10px] bg-dark-custom border-l-[1px] border-red-custom border-r-[1px] tracking-[0.25em]";
 
   return (
     <div className="mb-4 relative pt-4 w-full">
       <label
-        className={`${labelStyle} ${isFocused ? `${labelDynamic}` : "text-white"
-          } ${pyClass}`}
+        className={`${labelStyle} ${
+          isFocused ? labelDynamic : isInvalid ? "text-red-custom" : "text-white"
+        } ${pyClass}`}
       >
         {label}
       </label>
       <input
-        className={`${inputStyle} ${isFocused ? "border-red-custom" : "border-gray-custom"
+        className={`${inputStyle} ${isFocused ? "border-red-custom" : "border-gray-custom"} ${isInvalid ? "text-dark-custom font-medium border-red-custom bg-opacity-25" : ""
           }`}
         type={type}
         name={name}
@@ -77,6 +85,14 @@ const Input = ({
         onBlur={blurHandler}
         ref={inputRef}
       />
+      {isInvalid && (
+        <div className="absolute top-7 right-0 flex items-center pr-3">
+          <FontAwesomeIcon
+            icon={faExclamationCircle}
+            className="text-red-custom text-xl" // Personaliza el tamaño y color según tus necesidades
+          />
+        </div>
+      )}
     </div>
   );
 };

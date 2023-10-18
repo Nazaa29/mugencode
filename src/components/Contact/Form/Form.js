@@ -10,23 +10,9 @@ const Form = () => {
   const textareaStyle =
     "w-full px-3 h-64 pt-2 outline-none border border-gray-custom bg-dark-custom text-white text-[1em] resize-none";
 
-  const [isEmailValid, setEmailValid] = useState(false);
   const [isFocused, setIsFocused] = useState(false);
-  const [isTouched, setIsTouched] = useState(false);
-  const [errorMessage, setErrorMessage] = useState('');
   const inputRef = useRef(null);
 
-  const handleEmailInvalidChange = (isInvalid, isTouched) => {
-    setEmailValid(isInvalid);
-    setIsTouched(isTouched);
-
-    if (isTouched && !isInvalid) {
-      setErrorMessage('Correo electrónico no válido');
-    } else {
-      setErrorMessage('');
-    }
-    console.log(isEmailValid);
-  };
 
   const focusHandler = () => {
     setIsFocused(true);
@@ -97,9 +83,7 @@ const Form = () => {
           name="nombre"
           value={formData.nombre}
           onChange={handleChange}
-          onInvalidChange={handleEmailInvalidChange}
         />
-        {isTouched && <p className="text-red-custom">{errorMessage}</p>}
         <Input
           label="Email"
           type="email"
@@ -108,7 +92,6 @@ const Form = () => {
           name="email"
           value={formData.email}
           onChange={handleChange}
-          onInvalidChange={handleEmailInvalidChange}
         />
         <div className="relative pt-4 pb-[10px] w-full">
           <label
