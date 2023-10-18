@@ -10,7 +10,9 @@ const Input = ({
   name,
   value,
   onChange,
-  buttonPressed
+  buttonPressed,
+  isValid,
+  fakePause
 }) => {
   const [isFocused, setIsFocused] = useState(false);
   const inputRef = useRef(null);
@@ -20,18 +22,21 @@ const Input = ({
   const [isInvalid, setInvalid] = useState(false);
   const [enteredText, setText] = useState('');
 
+  const isValidEmail = (email) => {
+    const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+    return emailRegex.test(email);
+  };    
+
   useEffect(() => {
     if (type === 'email' && isTouched && blurEvent) {
 
-      const isValidEmail = (email) => {
-      const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
-      return emailRegex.test(email);
-    };    
-
       if (!isValidEmail(enteredEmail)) {
         setInvalid(true)
+        isValid(false)
       } else {
         setInvalid(false);
+        isValid(true)
+
       }
 
     }
@@ -40,17 +45,62 @@ const Input = ({
 
       if(enteredText.trim() === ""){
         setInvalid(true)
+        isValid(false)
       }else{
         setInvalid(false)
+        isValid(true)
       }
 
     }
   }, [enteredEmail, isTouched, type, blurEvent, enteredText])
 
+
+
+  useEffect(() => {
+    if (buttonPressed && type === 'email') {
+      if( !isValidEmail(enteredEmail)){
+        setInvalid(true);
+        setBlurEvent(true);
+        isValid(false);
+      }else{
+        if(fakePause){
+          setInvalid(false);
+          setBlurEvent(false);
+          setIsTouched(false);
+          setIsFocused(false);
+          setEmail('');
+        }
+          
+      }
+      
+    }
+    if (buttonPressed && type === 'text') {
+      if(enteredText.trim() === ""){
+        console.log('aquik')
+        setInvalid(true);
+        setBlurEvent(true);
+        isValid(false);
+      }else{
+          if(fakePause){
+            setInvalid(false);
+            setBlurEvent(false);
+            setIsTouched(false);
+            setIsFocused(false);
+            setText('');
+          }
+          
+        }
+        
+      }
+
+      
+    }, [buttonPressed, type, fakePause]);
+
   const focusHandler = () => {
     setIsFocused(true);
     setIsTouched(true);
   };
+
 
 
   const changeHandler = (event) => {

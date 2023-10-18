@@ -18,12 +18,11 @@ const Form = () => {
   const [isInvalid, setInvalid] = useState(false);
   const [enteredText, setText] = useState("");
   const inputRef = useRef(null);
-  const [isFormValid, setIsFormValid] = useState(false);
   const [areaValidity, setAreaValidity] = useState(false);
-
-  const [areaValidityStyle, setAreaValidityStyle] = useState('');
+  const [nombreValid, setNombreValid] = useState(false);
+  const [emailValid, setEmailValid] = useState(false);
   const [buttonPressed, setButtonPressed] = useState(false);
-
+  const [fakePause, setFakePause] = useState(false);
   const focusHandler = () => {
     setIsFocused(true);
     setIsTouched(true);
@@ -72,8 +71,13 @@ const Form = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setButtonPressed(true);
-    if(isFormValid){
-      console.log('form valido')
+    setTimeout(() => {
+      setButtonPressed(false); // Cambia el estado después del timeout
+    }, 1000);
+    console.log(nombreValid)
+    console.log(emailValid)
+    console.log(areaValidity)
+    if(areaValidity && emailValid && nombreValid){
       const response = await fetch("https://formspree.io/f/mvojvyla", {
       method: "POST",
       headers: {
@@ -91,20 +95,26 @@ const Form = () => {
         email: "",
         mensaje: "",
       });
+
+      setAreaValidity(false);
+      setEmailValid(false);
+      setNombreValid(false);
+      setInvalid(false)
+      setBlurEvent(false);
+      setIsFocused(false);
+      setAreaValidity(false);
+      setText('');
+      setFakePause(true);
     } else {
       alert("Hubo un problema al enviar tu idea. Por favor, inténtalo de nuevo");
     }
     }else if(!areaValidity){
       setInvalid(true)
-      setAreaValidityStyle('border-transition border-invalid');
-      setTimeout(() => {
-        setAreaValidityStyle('border-transition'); // Quita la clase de "border-invalid" después de 1 segundo
-      }, 1000);
-      
+      setBlurEvent(true);
     }
-    
-    
   };
+
+
   const pyClass = isFocused ? "py-[0px]" : "py-[10px]";
 
   const labelDynamic =
@@ -124,6 +134,8 @@ const Form = () => {
           name="nombre"
           value={formData.nombre}
           onChange={handleChange}
+          isValid={setNombreValid}
+          fakePause={fakePause}
         />
         <Input
           label="Email"
@@ -134,6 +146,9 @@ const Form = () => {
           name="email"
           value={formData.email}
           onChange={handleChange}
+          isValid={setEmailValid}
+          fakePause={fakePause}
+
         />
         <div className="relative pt-4 pb-[10px] w-full">
           <label
@@ -144,7 +159,7 @@ const Form = () => {
           </label>
           <textarea
             className={`${textareaStyle}  ${isFocused ? "border-red-custom" : "border-gray-custom"} ${isInvalid ? "text-dark-custom font-medium border-red-custom bg-opacity-25" : ""
-              } ${areaValidityStyle}`}
+              } `}
             rows="4"
             name="mensaje"
             value={formData.mensaje}
