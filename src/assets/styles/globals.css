@@ -44,3 +44,13 @@ body {
 .hidden {
   visibility: hidden;
 }
+
+@layer utilities {
+  .border-transition {
+    transition: border-color 1s; /* Transición de color del borde durante 1 segundo */
+  }
+
+  .border-invalid {
+    border-color: #ff0000; /* Color del borde cuando es inválido */
+  }
+}

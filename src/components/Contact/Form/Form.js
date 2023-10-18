@@ -1,6 +1,8 @@
 import Input from "./Input";
 import Button from "../../UI/Button";
-import { useState, useRef } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faExclamationCircle } from "@fortawesome/free-solid-svg-icons";
+import { useState, useRef, useEffect } from "react";
 
 const Form = () => {
   const inputStyle =
@@ -11,12 +13,35 @@ const Form = () => {
     "w-full px-3 h-64 pt-2 outline-none border border-gray-custom bg-dark-custom text-white text-[1em] resize-none";
 
   const [isFocused, setIsFocused] = useState(false);
+  const [isTouched, setIsTouched] = useState(false);
+  const [blurEvent, setBlurEvent] = useState(false);
+  const [isInvalid, setInvalid] = useState(false);
+  const [enteredText, setText] = useState("");
   const inputRef = useRef(null);
+  const [isFormValid, setIsFormValid] = useState(false);
+  const [areaValidity, setAreaValidity] = useState(false);
 
+  const [areaValidityStyle, setAreaValidityStyle] = useState('');
+  const [buttonPressed, setButtonPressed] = useState(false);
 
   const focusHandler = () => {
     setIsFocused(true);
+    setIsTouched(true);
   };
+
+  useEffect(() => {
+    if (isTouched && blurEvent) {
+
+      if (enteredText.trim() === "") {
+        setInvalid(true)
+        setAreaValidity(false);
+      } else {
+        setInvalid(false)
+        setAreaValidity(true)
+      }
+
+    }
+  }, [isTouched, blurEvent, enteredText])
 
   const blurHandler = () => {
     if (inputRef.current.value.trim() === "") {
@@ -24,6 +49,7 @@ const Form = () => {
     } else {
       setIsFocused(true);
     }
+    setBlurEvent(true);
   };
 
   const [formData, setFormData] = useState({
@@ -38,12 +64,17 @@ const Form = () => {
       ...formData,
       [name]: value,
     });
+    if (name === 'mensaje') {
+      setText(value);
+    }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    const response = await fetch("https://formspree.io/f/mvojvyla", {
+    setButtonPressed(true);
+    if(isFormValid){
+      console.log('form valido')
+      const response = await fetch("https://formspree.io/f/mvojvyla", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -63,8 +94,17 @@ const Form = () => {
     } else {
       alert("Hubo un problema al enviar tu idea. Por favor, inténtalo de nuevo");
     }
+    }else if(!areaValidity){
+      setInvalid(true)
+      setAreaValidityStyle('border-transition border-invalid');
+      setTimeout(() => {
+        setAreaValidityStyle('border-transition'); // Quita la clase de "border-invalid" después de 1 segundo
+      }, 1000);
+      
+    }
+    
+    
   };
-
   const pyClass = isFocused ? "py-[0px]" : "py-[10px]";
 
   const labelDynamic =
@@ -72,13 +112,14 @@ const Form = () => {
 
   return (
     <div className="max-w-md mx-auto w-full flex flex-col">
-      <form className="flex flex-col items-center" onSubmit={handleSubmit}>
+      <form className="flex flex-col items-center" onSubmit={handleSubmit} noValidate>
         <div className="h-[1px] bg-red-custom w-[65%] self-start"></div>{" "}
         {/* linea superior*/}
         <Input
           label="Nombre"
           type="text"
           inputStyle={inputStyle}
+          buttonPressed={buttonPressed}
           labelStyle={labelStyle}
           name="nombre"
           value={formData.nombre}
@@ -87,6 +128,7 @@ const Form = () => {
         <Input
           label="Email"
           type="email"
+          buttonPressed={buttonPressed}
           inputStyle={inputStyle}
           labelStyle={labelStyle}
           name="email"
@@ -95,14 +137,14 @@ const Form = () => {
         />
         <div className="relative pt-4 pb-[10px] w-full">
           <label
-            className={`${labelStyle} ${isFocused ? labelDynamic : "text-gray-custom"
+            className={`${labelStyle} ${isFocused ? labelDynamic : isInvalid ? "text-red-custom" : "text-white"
               } ${pyClass}`}
           >
             Tu Idea
           </label>
           <textarea
-            className={`${textareaStyle} ${isFocused ? "border-red-custom" : "border-gray-custom"
-              }`}
+            className={`${textareaStyle}  ${isFocused ? "border-red-custom" : "border-gray-custom"} ${isInvalid ? "text-dark-custom font-medium border-red-custom bg-opacity-25" : ""
+              } ${areaValidityStyle}`}
             rows="4"
             name="mensaje"
             value={formData.mensaje}
@@ -111,6 +153,14 @@ const Form = () => {
             onBlur={blurHandler}
             onFocus={focusHandler}
           ></textarea>
+          {isInvalid && (
+            <div className="absolute top-7 right-0 flex items-center pr-3">
+              <FontAwesomeIcon
+                icon={faExclamationCircle}
+                className="text-red-custom text-xl" // Personaliza el tamaño y color según tus necesidades
+              />
+            </div>
+          )}
         </div>
         <div className="h-[1px] bg-red-custom w-[65%] self-end mb-6"></div>{" "}
         {/* linea inferior*/}

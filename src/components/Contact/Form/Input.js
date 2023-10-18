@@ -10,7 +10,7 @@ const Input = ({
   name,
   value,
   onChange,
-  onInvalidChange
+  buttonPressed
 }) => {
   const [isFocused, setIsFocused] = useState(false);
   const inputRef = useRef(null);
@@ -18,34 +18,47 @@ const Input = ({
   const [isTouched, setIsTouched] = useState(false);
   const [blurEvent, setBlurEvent] = useState(false);
   const [isInvalid, setInvalid] = useState(false);
+  const [enteredText, setText] = useState('');
 
   useEffect(() => {
     if (type === 'email' && isTouched && blurEvent) {
 
       const isValidEmail = (email) => {
-        const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
-        return emailRegex.test(email);
-      };
+      const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+      return emailRegex.test(email);
+    };    
 
       if (!isValidEmail(enteredEmail)) {
         setInvalid(true)
       } else {
         setInvalid(false);
       }
+
     }
-  }, [enteredEmail, isTouched, type, onInvalidChange, blurEvent])
+
+    if (type === 'text' && isTouched && blurEvent) {
+
+      if(enteredText.trim() === ""){
+        setInvalid(true)
+      }else{
+        setInvalid(false)
+      }
+
+    }
+  }, [enteredEmail, isTouched, type, blurEvent, enteredText])
 
   const focusHandler = () => {
     setIsFocused(true);
     setIsTouched(true);
-    setBlurEvent(false);
   };
-
 
 
   const changeHandler = (event) => {
     if (type === 'email') {
       setEmail(event.target.value)
+    }
+    if (type === 'text') {
+      setText(event.target.value)
     }
     onChange(event);
   }
@@ -58,7 +71,6 @@ const Input = ({
     }
     setBlurEvent(true);
   };
-
 
   const pyClass = isFocused ? "py-[0px]" : "py-[10px]";
 
