@@ -76,7 +76,6 @@ const Input = ({
     }
     if (buttonPressed && type === 'text') {
       if(enteredText.trim() === ""){
-        console.log('aquik')
         setInvalid(true);
         setBlurEvent(true);
         isValid(false);

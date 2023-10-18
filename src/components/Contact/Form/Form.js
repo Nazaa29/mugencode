@@ -74,9 +74,6 @@ const Form = () => {
     setTimeout(() => {
       setButtonPressed(false); // Cambia el estado después del timeout
     }, 1000);
-    console.log(nombreValid)
-    console.log(emailValid)
-    console.log(areaValidity)
     if(areaValidity && emailValid && nombreValid){
       const response = await fetch("https://formspree.io/f/mvojvyla", {
       method: "POST",
