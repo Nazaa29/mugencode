@@ -7,6 +7,8 @@ import "./assets/styles/globals.css";
 import { Fragment } from "react";
 import { useState } from "react";
 import { useEffect } from "react";
+import { Provider } from "react-redux";
+import store from "./store";
 
 function App() {
   const [headerHeight, setHeaderHeight] = useState(0);
@@ -26,7 +28,10 @@ function App() {
       <Home headerHeight={headerHeight} />
       <About />
       <Projects />
-      <Contact />
+      <Provider store={store}>
+        <Contact />
+      </Provider>
+      
     </Fragment>
   );
 }

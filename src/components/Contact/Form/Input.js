@@ -1,6 +1,8 @@
 import { useState, useRef, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faExclamationCircle } from "@fortawesome/free-solid-svg-icons";
+import { formActions } from "../../../store";
+import { useDispatch, useSelector } from "react-redux";
 
 const Input = ({
   label,
@@ -10,9 +12,7 @@ const Input = ({
   name,
   value,
   onChange,
-  buttonPressed,
   isValid,
-  fakePause
 }) => {
   const [isFocused, setIsFocused] = useState(false);
   const inputRef = useRef(null);
@@ -21,6 +21,9 @@ const Input = ({
   const [blurEvent, setBlurEvent] = useState(false);
   const [isInvalid, setInvalid] = useState(false);
   const [enteredText, setText] = useState('');
+  const dispatch = useDispatch();
+  const buttonPressed = useSelector(state => state.form.buttonPressed);
+  const reset = useSelector(state => state.form.reset);
 
   const isValidEmail = (email) => {
     const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
@@ -57,43 +60,30 @@ const Input = ({
 
 
   useEffect(() => {
-    if (buttonPressed && type === 'email') {
+    if (type === 'email') {
       if( !isValidEmail(enteredEmail)){
         setInvalid(true);
         setBlurEvent(true);
         isValid(false);
-      }else{
-        if(fakePause){
-          setInvalid(false);
-          setBlurEvent(false);
-          setIsTouched(false);
-          setIsFocused(false);
-          setEmail('');
-        }
-          
       }
-      
-    }
-    if (buttonPressed && type === 'text') {
-      if(enteredText.trim() === ""){
+    }if(type === 'text'){
+      if(enteredText.trim() === ''){
         setInvalid(true);
         setBlurEvent(true);
         isValid(false);
-      }else{
-          if(fakePause){
-            setInvalid(false);
-            setBlurEvent(false);
-            setIsTouched(false);
-            setIsFocused(false);
-            setText('');
-          }
-          
-        }
-        
       }
+    }          
+    }, [buttonPressed, type]);
 
-      
-    }, [buttonPressed, type, fakePause]);
+    useEffect(() => {
+      setInvalid(false);
+      setBlurEvent(false);
+      setIsTouched(false);
+      setIsFocused(false);
+      setEmail('');
+      setText('');
+      isValid(false);
+    }, [reset])
 
   const focusHandler = () => {
     setIsFocused(true);

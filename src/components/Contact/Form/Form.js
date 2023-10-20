@@ -3,8 +3,20 @@ import Button from "../../UI/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faExclamationCircle } from "@fortawesome/free-solid-svg-icons";
 import { useState, useRef, useEffect } from "react";
+import { formActions } from "../../../store";
+import { useDispatch, useSelector } from "react-redux";
 
 const Form = () => {
+  const [isInvalid, setInvalid] = useState(false);
+  const [enteredText, setText] = useState("");
+  const [areaValidity, setAreaValidity] = useState(false);
+  const [nombreValid, setNombreValid] = useState(false);
+  const [emailValid, setEmailValid] = useState(false);
+  const [blurEvent, setBlurEvent] = useState(false);
+  const [isTouched, setIsTouched] = useState(false);
+  const [isFocused, setIsFocused] = useState(false);
+  const inputRef = useRef(null);
+
   const inputStyle =
     "w-full p-[10px] outline-none border border-gray-custom bg-dark-custom text-white text-[1em]";
   const labelStyle =
@@ -12,20 +24,22 @@ const Form = () => {
   const textareaStyle =
     "w-full px-3 h-64 pt-2 outline-none border border-gray-custom bg-dark-custom text-white text-[1em] resize-none";
 
-  const [isFocused, setIsFocused] = useState(false);
-  const [isTouched, setIsTouched] = useState(false);
-  const [blurEvent, setBlurEvent] = useState(false);
-  const [isInvalid, setInvalid] = useState(false);
-  const [enteredText, setText] = useState("");
-  const inputRef = useRef(null);
-  const [areaValidity, setAreaValidity] = useState(false);
-  const [nombreValid, setNombreValid] = useState(false);
-  const [emailValid, setEmailValid] = useState(false);
-  const [buttonPressed, setButtonPressed] = useState(false);
-  const [fakePause, setFakePause] = useState(false);
+  const dispatch = useDispatch();
+  const buttonPressed = useSelector(state => state.form.buttonPressed);
+  const reset = useSelector(state => state.form.reset);
+
   const focusHandler = () => {
     setIsFocused(true);
-    setIsTouched(true);
+    setIsTouched(true)
+  };
+
+  const blurHandler = () => {
+    if (enteredText.trim() === '' ){
+      setIsFocused(false);
+    }else{
+      setIsFocused(true)
+    }
+    setBlurEvent(true)
   };
 
   useEffect(() => {
@@ -33,23 +47,13 @@ const Form = () => {
 
       if (enteredText.trim() === "") {
         setInvalid(true)
-        setAreaValidity(false);
       } else {
         setInvalid(false)
-        setAreaValidity(true)
       }
 
     }
   }, [isTouched, blurEvent, enteredText])
 
-  const blurHandler = () => {
-    if (inputRef.current.value.trim() === "") {
-      setIsFocused(false);
-    } else {
-      setIsFocused(true);
-    }
-    setBlurEvent(true);
-  };
 
   const [formData, setFormData] = useState({
     nombre: "",
@@ -68,46 +72,46 @@ const Form = () => {
     }
   };
 
+  useEffect(() =>{
+    if (enteredText.trim() === "") {
+      setInvalid(true);
+      setBlurEvent(true);
+    }
+  }, [buttonPressed])
+
+  useEffect(() => {
+    setInvalid(false);
+    setBlurEvent(false);
+    setIsFocused(false);
+    setIsTouched(false);
+    setText('')
+  }, [reset])
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setButtonPressed(true);
-    setTimeout(() => {
-      setButtonPressed(false); // Cambia el estado después del timeout
-    }, 1000);
-    if(areaValidity && emailValid && nombreValid){
+    dispatch(formActions.toggleButton());
+    if (!isInvalid && emailValid && nombreValid) {
       const response = await fetch("https://formspree.io/f/mvojvyla", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData),
-    });
-
-    if (response.ok) {
-      const responseData = await response.json();
-      console.log(responseData);
-      alert("Tu idea ha sido enviada, gracias por tomar el paso!");
-      setFormData({
-        nombre: "",
-        email: "",
-        mensaje: "",
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
       });
 
-      setAreaValidity(false);
-      setEmailValid(false);
-      setNombreValid(false);
-      setInvalid(false)
-      setBlurEvent(false);
-      setIsFocused(false);
-      setAreaValidity(false);
-      setText('');
-      setFakePause(true);
-    } else {
-      alert("Hubo un problema al enviar tu idea. Por favor, inténtalo de nuevo");
-    }
-    }else if(!areaValidity){
-      setInvalid(true)
-      setBlurEvent(true);
+      if (response.ok) {
+        const responseData = await response.json();
+        console.log(responseData);
+        alert("Tu idea ha sido enviada, gracias por tomar el paso!");
+        setFormData({
+          nombre: "",
+          email: "",
+          mensaje: "",
+        });
+        dispatch(formActions.reset());
+      } else {
+        alert("Hubo un problema al enviar tu idea. Por favor, inténtalo de nuevo");
+      }
     }
   };
 
@@ -132,7 +136,6 @@ const Form = () => {
           value={formData.nombre}
           onChange={handleChange}
           isValid={setNombreValid}
-          fakePause={fakePause}
         />
         <Input
           label="Email"
@@ -144,7 +147,6 @@ const Form = () => {
           value={formData.email}
           onChange={handleChange}
           isValid={setEmailValid}
-          fakePause={fakePause}
 
         />
         <div className="relative pt-4 pb-[10px] w-full">
