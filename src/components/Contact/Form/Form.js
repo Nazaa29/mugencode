@@ -9,7 +9,6 @@ import { useDispatch, useSelector } from "react-redux";
 const Form = () => {
   const [isInvalid, setInvalid] = useState(false);
   const [enteredText, setText] = useState("");
-  const [areaValidity, setAreaValidity] = useState(false);
   const [nombreValid, setNombreValid] = useState(false);
   const [emailValid, setEmailValid] = useState(false);
   const [blurEvent, setBlurEvent] = useState(false);
@@ -100,14 +99,15 @@ const Form = () => {
       });
 
       if (response.ok) {
+
         const responseData = await response.json();
         console.log(responseData);
-        alert("Tu idea ha sido enviada, gracias por tomar el paso!");
         setFormData({
           nombre: "",
           email: "",
           mensaje: "",
         });
+        dispatch(formActions.show());
         dispatch(formActions.reset());
       } else {
         alert("Hubo un problema al enviar tu idea. Por favor, inténtalo de nuevo");

@@ -9,6 +9,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { Provider } from "react-redux";
 import store from "./store";
+import Modal from "./components/UI/Modal";
 
 function App() {
   const [headerHeight, setHeaderHeight] = useState(0);
@@ -24,14 +25,14 @@ function App() {
 
   return (
     <Fragment>
+      <Provider store={store}>
       <Header onHeaderHeightChange={handleHeaderHeightChange} />
       <Home headerHeight={headerHeight} />
       <About />
       <Projects />
-      <Provider store={store}>
-        <Contact />
+      <Contact />
+      <Modal />
       </Provider>
-      
     </Fragment>
   );
 }

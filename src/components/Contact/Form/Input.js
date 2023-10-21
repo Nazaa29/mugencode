@@ -21,7 +21,6 @@ const Input = ({
   const [blurEvent, setBlurEvent] = useState(false);
   const [isInvalid, setInvalid] = useState(false);
   const [enteredText, setText] = useState('');
-  const dispatch = useDispatch();
   const buttonPressed = useSelector(state => state.form.buttonPressed);
   const reset = useSelector(state => state.form.reset);
 

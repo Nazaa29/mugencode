@@ -1,6 +1,6 @@
 import { createSlice, configureStore } from "@reduxjs/toolkit";
 
-const initialState = {reset: false, buttonPressed: false};
+const initialState = {reset: false, buttonPressed: false, show: false};
 
 const formSlice = createSlice({
     name: 'form',
@@ -11,7 +11,11 @@ const formSlice = createSlice({
         },
         reset(state){
             state.reset=!state.reset;
+            state.validity=false;
         },
+        show(state){
+            state.show=!state.show;
+        }
     }
 })
 
