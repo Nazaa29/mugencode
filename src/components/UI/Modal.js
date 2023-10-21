@@ -14,7 +14,7 @@ const Modal = () => {
     }
 
     return show && (
-        <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-75">
+        <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-75" onClick={onClose}>
             <div className="modal bg-white w-300 rounded p-4 shadow-md relative">
                 <div className="modal-header bg-green-200 p-2 rounded-t">
                     <span onClick={onClose} className="close-button absolute top-2 right-2 cursor-pointer">
