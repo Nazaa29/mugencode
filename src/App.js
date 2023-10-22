@@ -31,7 +31,7 @@ function App() {
       <About />
       <Projects />
       <Contact />
-      <Modal />
+      <Modal/>
       </Provider>
     </Fragment>
   );

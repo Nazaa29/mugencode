@@ -99,7 +99,6 @@ const Form = () => {
       });
 
       if (response.ok) {
-
         const responseData = await response.json();
         console.log(responseData);
         setFormData({
@@ -107,10 +106,10 @@ const Form = () => {
           email: "",
           mensaje: "",
         });
-        dispatch(formActions.show());
+        dispatch(formActions.show(true));
         dispatch(formActions.reset());
       } else {
-        alert("Hubo un problema al enviar tu idea. Por favor, inténtalo de nuevo");
+        dispatch(formActions.show(false));
       }
     }
   };
