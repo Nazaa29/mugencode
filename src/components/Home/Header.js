@@ -35,7 +35,7 @@ const Header = (props) => {
       setOpacity(newOpacity);
       if (window.scrollY > 0 && isVisible && !isMouseOverHeader) {
         clearTimeout(timeoutId.current);
-        timeoutId.current = setTimeout(() => setIsVisible(false), 3000);
+        timeoutId.current = setTimeout(() => setIsVisible(false), 300);
       }
       if (window.scrollY === 0) {
         clearTimeout(timeoutId.current);
