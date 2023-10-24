@@ -1,5 +1,5 @@
 import Testimonial from "./Testimonial";
-import perfil from '../../assets/images/foto-perfil-1.png'
+import perfil1 from '../../assets/images/foto-perfil-1.png'
 import perfil2 from '../../assets/images/perfil2.jpg'
 import { useState } from "react";
 
@@ -17,7 +17,7 @@ const TestimonialsSlide = ({ setCurrent }) => {
             name: "Fernando Lopez",
             bussiness:'Solymar Agencia de Turismo',
             text: "Texto del testimonio 1. Puede ser un párrafo largo que se ajustará al contenedor.Texto del testimonio Texto del testimonio 1. Puede ser un párrafo largo que se ajustará al contenedor.Texto del testimonio Texto del testimonio 1. Puede ser un párrafo largo que se ajustará al contenedor.Texto del testimonioTexto del testimonio 1. Puede ser un párrafo largo que se ajustará al contenedor.Texto del testimonio Texto del testimonio 1. Puede ser un párrafo largo que se ajustará al contenedor.Texto del testimonio Texto del testimonio 1. Puede ser un párrafo largo que se ajustará al contenedor.Texto del testimonio Texto del testimonio 1. Puede ser un párrafo largo que se ajustará al contenedor.Texto del testimonio Texto del testimonio 1. Puede ser un párrafo largo que se ajustará al contenedor.Texto del testimonio",
-            image: perfil
+            image: perfil1
         },
         {
             name: "Juan Cruz Dovzak",
@@ -42,9 +42,10 @@ const TestimonialsSlide = ({ setCurrent }) => {
                     </div>
                 ))}
             </div>
-            <ul className="flex justify-center items-center mt-10 h-[100%] w-[100%]">
+            <ul className="flex mt-10 h-[400px] w-[1000px] overflow-hidden absolute translate-x-[-48%] left-[50%] bottom-[20%]">
                 {testimonials.map((testimonial, index) => (
                     <Testimonial
+                        currentTestimonial={currentTestimonial}
                         key={index}
                         name={testimonial.name}
                         bussiness={testimonial.bussiness}
@@ -53,9 +54,12 @@ const TestimonialsSlide = ({ setCurrent }) => {
                     />
                 ))}
             </ul>
-            <ul className="flex absolute bottom-24 left-[50%] translate-x-[-50%]">
+            <ul className="flex absolute bottom-32 left-[50%] translate-x-[-50%]">
                 {testimonials.map((_, index) => (
-                    <li className=" rounded-full w-4 h-4 bg-gray-custom m-4"></li>
+                    <li className={`rounded-full w-4 h-4 bg-gray-custom m-4 cursor-pointer  ${currentTestimonial === index ? 'bg-red-custom' : ''}`}
+                    onClick={() => setCurrentTestimonial(index)}
+                    >
+                    </li>
                 ))}
             </ul>
 
