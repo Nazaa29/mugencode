@@ -1,7 +1,7 @@
 import Testimonial from "./Testimonial";
 import perfil1 from '../../assets/images/foto-perfil-1.png'
 import perfil2 from '../../assets/images/perfil2.jpg'
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const TestimonialsSlide = ({ setCurrent }) => {
     const buttonText = 'PROYECTOS';
@@ -12,16 +12,28 @@ const TestimonialsSlide = ({ setCurrent }) => {
         setCurrent((current) => current === 0 ? current : current - 1)
     }
 
+    const changeTestimonialAutomatically = () => {
+        setCurrentTestimonial((current) => (current + 1) % testimonials.length);
+    };
+
+    useEffect(() => {
+        const timer = setInterval(changeTestimonialAutomatically, 20000); // 30,000 ms = 30 segundos
+
+        return () => {
+            clearInterval(timer);
+        };
+    }, []);
+
     const testimonials = [
         {
             name: "Fernando Lopez",
-            bussiness:'Solymar Agencia de Turismo',
+            bussiness: 'Solymar Agencia de Turismo',
             text: "Texto del testimonio 1. Puede ser un párrafo largo que se ajustará al contenedor.Texto del testimonio Texto del testimonio 1. Puede ser un párrafo largo que se ajustará al contenedor.Texto del testimonio Texto del testimonio 1. Puede ser un párrafo largo que se ajustará al contenedor.Texto del testimonioTexto del testimonio 1. Puede ser un párrafo largo que se ajustará al contenedor.Texto del testimonio Texto del testimonio 1. Puede ser un párrafo largo que se ajustará al contenedor.Texto del testimonio Texto del testimonio 1. Puede ser un párrafo largo que se ajustará al contenedor.Texto del testimonio Texto del testimonio 1. Puede ser un párrafo largo que se ajustará al contenedor.Texto del testimonio Texto del testimonio 1. Puede ser un párrafo largo que se ajustará al contenedor.Texto del testimonio",
             image: perfil1
         },
         {
             name: "Juan Cruz Dovzak",
-            bussiness:'Marketfy eCommerce',
+            bussiness: 'Marketfy eCommerce',
             text: "Texto del testimonio 1. Puede ser un párrafo largo que se ajustará al contenedor.Texto del testimonio Texto del testimonio 1. Puede ser un párrafo largo que se ajustará al contenedor.Texto del testimonio Texto del testimonio 1. Puede ser un párrafo largo que se ajustará al contenedor.Texto del testimonioTexto del testimonio 1. Puede ser un párrafo largo que se ajustará al contenedor.Texto del testimonio Texto del testimonio 1. Puede ser un párrafo largo que se ajustará al contenedor.Texto del testimonio Texto del testimonio 1. Puede ser un párrafo largo que se ajustará al contenedor.Texto del testimonio Texto del testimonio 1. Puede ser un párrafo largo que se ajustará al contenedor.Texto del testimonio Texto del testimonio 1. Puede ser un párrafo largo que se ajustará al contenedor.Texto del testimonio",
             image: perfil2
         },
@@ -57,7 +69,7 @@ const TestimonialsSlide = ({ setCurrent }) => {
             <ul className="flex absolute bottom-32 left-[50%] translate-x-[-50%]">
                 {testimonials.map((_, index) => (
                     <li className={`rounded-full w-4 h-4 bg-gray-custom m-4 cursor-pointer  ${currentTestimonial === index ? 'bg-red-custom' : ''}`}
-                    onClick={() => setCurrentTestimonial(index)}
+                        onClick={() => setCurrentTestimonial(index)}
                     >
                     </li>
                 ))}
