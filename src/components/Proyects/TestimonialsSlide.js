@@ -8,6 +8,28 @@ const TestimonialsSlide = ({ setCurrent }) => {
     const buttonLetters = buttonText.split('');
     const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
+    const testimonials = [
+        {
+            name: "Fernando Lopez",
+            bussiness: 'Solymar Agencia de Turismo',
+            text: "Texto del testimonio 1. Puede ser un párrafo largo que se ajustará al contenedor.Texto del testimonio Texto del testimonio 1. Puede ser un párrafo largo que se ajustará al contenedor.Texto del testimonio Texto del testimonio 1. Puede ser un párrafo largo que se ajustará al contenedor.Texto del testimonioTexto del testimonio 1. Puede ser un párrafo largo que se ajustará al contenedor.Texto del testimonio Texto del testimonio 1. Puede ser un párrafo largo que se ajustará al contenedor.Texto del testimonio Texto del testimonio 1. Puede ser un párrafo largo que se ajustará al contenedor.Texto del testimonio Texto del testimonio 1. Puede ser un párrafo largo que se ajustará al contenedor.Texto del testimonio Texto del testimonio 1. Puede ser un párrafo largo que se ajustará al contenedor.Texto del testimonio",
+            image: perfil1
+        },
+        {
+            name: "Juan Cruz Dovzak",
+            bussiness: 'Marketfy eCommerce',
+            text: "Texto del testimonio 1. Puede ser un párrafo largo que se ajustará al contenedor.Texto del testimonio Texto del testimonio 1. Puede ser un párrafo largo que se ajustará al contenedor.Texto del testimonio Texto del testimonio 1. Puede ser un párrafo largo que se ajustará al contenedor.Texto del testimonioTexto del testimonio 1. Puede ser un párrafo largo que se ajustará al contenedor.Texto del testimonio Texto del testimonio 1. Puede ser un párrafo largo que se ajustará al contenedor.Texto del testimonio Texto del testimonio 1. Puede ser un párrafo largo que se ajustará al contenedor.Texto del testimonio Texto del testimonio 1. Puede ser un párrafo largo que se ajustará al contenedor.Texto del testimonio Texto del testimonio 1. Puede ser un párrafo largo que se ajustará al contenedor.Texto del testimonio",
+            image: perfil2
+        },
+        {
+            name: "Fernando Lopez",
+            bussiness: 'Solymar Agencia de Turismo',
+            text: "Texto del testimonio 1. Puede ser un párrafo largo que se ajustará al contenedor.Texto del testimonio Texto del testimonio 1. Puede ser un párrafo largo que se ajustará al contenedor.Texto del testimonio Texto del testimonio 1. Puede ser un párrafo largo que se ajustará al contenedor.Texto del testimonioTexto del testimonio 1. Puede ser un párrafo largo que se ajustará al contenedor.Texto del testimonio Texto del testimonio 1. Puede ser un párrafo largo que se ajustará al contenedor.Texto del testimonio Texto del testimonio 1. Puede ser un párrafo largo que se ajustará al contenedor.Texto del testimonio Texto del testimonio 1. Puede ser un párrafo largo que se ajustará al contenedor.Texto del testimonio Texto del testimonio 1. Puede ser un párrafo largo que se ajustará al contenedor.Texto del testimonio",
+            image: perfil1
+        },
+        // Puedes agregar más objetos testimonio según sea necesario
+    ];
+
     const prev = () => {
         setCurrent((current) => current === 0 ? current : current - 1)
     }
@@ -23,23 +45,6 @@ const TestimonialsSlide = ({ setCurrent }) => {
             clearInterval(timer);
         };
     }, []);
-
-    const testimonials = [
-        {
-            name: "Fernando Lopez",
-            bussiness: 'Solymar Agencia de Turismo',
-            text: "Texto del testimonio 1. Puede ser un párrafo largo que se ajustará al contenedor.Texto del testimonio Texto del testimonio 1. Puede ser un párrafo largo que se ajustará al contenedor.Texto del testimonio Texto del testimonio 1. Puede ser un párrafo largo que se ajustará al contenedor.Texto del testimonioTexto del testimonio 1. Puede ser un párrafo largo que se ajustará al contenedor.Texto del testimonio Texto del testimonio 1. Puede ser un párrafo largo que se ajustará al contenedor.Texto del testimonio Texto del testimonio 1. Puede ser un párrafo largo que se ajustará al contenedor.Texto del testimonio Texto del testimonio 1. Puede ser un párrafo largo que se ajustará al contenedor.Texto del testimonio Texto del testimonio 1. Puede ser un párrafo largo que se ajustará al contenedor.Texto del testimonio",
-            image: perfil1
-        },
-        {
-            name: "Juan Cruz Dovzak",
-            bussiness: 'Marketfy eCommerce',
-            text: "Texto del testimonio 1. Puede ser un párrafo largo que se ajustará al contenedor.Texto del testimonio Texto del testimonio 1. Puede ser un párrafo largo que se ajustará al contenedor.Texto del testimonio Texto del testimonio 1. Puede ser un párrafo largo que se ajustará al contenedor.Texto del testimonioTexto del testimonio 1. Puede ser un párrafo largo que se ajustará al contenedor.Texto del testimonio Texto del testimonio 1. Puede ser un párrafo largo que se ajustará al contenedor.Texto del testimonio Texto del testimonio 1. Puede ser un párrafo largo que se ajustará al contenedor.Texto del testimonio Texto del testimonio 1. Puede ser un párrafo largo que se ajustará al contenedor.Texto del testimonio Texto del testimonio 1. Puede ser un párrafo largo que se ajustará al contenedor.Texto del testimonio",
-            image: perfil2
-        },
-        // Puedes agregar más objetos testimonio según sea necesario
-    ];
-
 
     return (
         <section className="w-full h-full relative flex flex-col">
