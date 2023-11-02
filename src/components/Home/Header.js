@@ -33,11 +33,10 @@ const Header = (props) => {
       let newOpacity = 1 - window.scrollY / 500;
       if (newOpacity < 0.7) newOpacity = 0.7;
       setOpacity(newOpacity);
-      if (window.scrollY > 0 && isVisible && !isMouseOverHeader) {
+      if (window.scrollY > 0) {
         clearTimeout(timeoutId.current);
-        timeoutId.current = setTimeout(() => setIsVisible(false), 300);
-      }
-      if (window.scrollY === 0) {
+        timeoutId.current = setTimeout(() => setIsVisible(false), 3000); // 3 seconds after the first scroll
+      } else {
         clearTimeout(timeoutId.current);
         setIsVisible(true);
       }
@@ -49,7 +48,7 @@ const Header = (props) => {
       window.removeEventListener("scroll", handleScroll);
       clearTimeout(timeoutId.current);
     };
-  }, [isVisible, isMouseOverHeader]);
+  }, []);
 
   const handleMouseMove = (e) => {
     const { top, bottom } = headerRef.current.getBoundingClientRect();
@@ -57,7 +56,6 @@ const Header = (props) => {
       setIsMouseOverHeader(true);
       clearTimeout(timeoutId.current);
       setIsVisible(true);
-      timeoutId.current = setTimeout(() => setIsVisible(false), 3000);
     } else {
       setIsMouseOverHeader(false);
     }
@@ -86,23 +84,35 @@ const Header = (props) => {
         ref={headerRef}
         style={{
           backgroundColor: `rgba(34, 40, 49, ${opacity})`,
-          transition: "opacity 0.5s ease-in-out", // Añadido transición suave
+          transition: "opacity 0.5s ease-in-out",
         }}
       >
         <div className="logo w-32">
           <img src={logo} alt="Logo" className="w-24 h-16 ml-12" />
         </div>
         <nav className="flex space-x-40">
-          <a href="#home" className="mr-4 font-sourceCodePro">
+          <a
+            href="#home"
+            className="mr-4 font-sourceCodePro hover:text-gray-400"
+          >
             Home
           </a>
-          <a href="#about" className="mr-4 font-sourceCodePro">
+          <a
+            href="#about"
+            className="mr-4 font-sourceCodePro hover:text-gray-400"
+          >
             About Us
           </a>
-          <a href="#projects" className="mr-4 font-sourceCodePro">
+          <a
+            href="#projects"
+            className="mr-4 font-sourceCodePro hover:text-gray-400"
+          >
             Projects
           </a>
-          <a href="#contact" className="mr-4 font-sourceCodePro">
+          <a
+            href="#contact"
+            className="mr-4 font-sourceCodePro hover:text-gray-400"
+          >
             Contact
           </a>
         </nav>
