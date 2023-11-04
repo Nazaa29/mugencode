@@ -87,7 +87,7 @@ const Header = (props) => {
         }}
       ></div>
       <header
-        className={`fixed top-0 w-full text-white py-2 px-8 flex items-center justify-between border-b-4 border-red-custom transition-opacity duration-500 z-50 ${
+        className={`fixed top-0 w-full text-white py-2 px-8 flex items-center justify-between border-red-custom transition-opacity border-b-[3px] duration-500 z-50 ${
           isVisible ? "opacity-100" : "opacity-0"
         }`}
         ref={headerRef}
@@ -97,35 +97,35 @@ const Header = (props) => {
         }}
       >
         <div className="logo w-32">
-          <img src={logo} alt="Logo" className="w-24 h-16 ml-12" />
+          <img src={logo} alt="Logo" className="w-24 h-16 ml-12 " />
         </div>
-        <nav className="flex space-x-40">
+        <nav className="flex space-x-20 xl:space-x-40 lg:space-x-24">
           <a
             href="#home"
-            className="mr-4 font-sourceCodePro hover:text-gray-400"
+            className="font-sourceCodePro hover:text-gray-400 lg:visible lg:block hidden"
           >
             Home
           </a>
           <a
             href="#about"
-            className="mr-4 font-sourceCodePro hover:text-gray-400"
+            className="font-sourceCodePro hover:text-gray-400 lg:visible lg:block hidden"
           >
             About Us
           </a>
           <a
             href="#projects"
-            className="mr-4 font-sourceCodePro hover:text-gray-400"
+            className="font-sourceCodePro hover:text-gray-400 lg:visible lg:block hidden"
           >
             Projects
           </a>
           <a
             href="#contact"
-            className="mr-4 font-sourceCodePro hover:text-gray-400"
+            className="font-sourceCodePro hover:text-gray-400 lg:visible lg:block hidden"
           >
             Contact
           </a>
         </nav>
-        <div className="social-icons flex">
+        <div className="social-icons flex pr-10">
           <a
             href="https://github.com/Nazaa29/mugencode"
             target="_blank"
