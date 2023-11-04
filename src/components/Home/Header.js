@@ -96,8 +96,8 @@ const Header = (props) => {
           transition: "opacity 0.5s ease-in-out",
         }}
       >
-        <div className="logo w-32">
-          <img src={logo} alt="Logo" className="w-24 h-16 ml-12 " />
+        <div className="logo sm:w-32 w-20">
+          <img src={logo} alt="Logo" className="sm:w-24 sm:h-16 sm:ml-12" />
         </div>
         <nav className="flex space-x-20 xl:space-x-40 lg:space-x-24">
           <a
@@ -125,12 +125,12 @@ const Header = (props) => {
             Contact
           </a>
         </nav>
-        <div className="social-icons flex pr-10">
+        <div className="social-icons flex sm:pr-10">
           <a
             href="https://github.com/Nazaa29/mugencode"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-3xl mr-4 hover:text-gray-400"
+            className="sm:text-3xl text-2xl sm:mr-4 mr-2 hover:text-gray-400"
           >
             <FaGithub />
           </a>
@@ -138,7 +138,7 @@ const Header = (props) => {
             href="URL-de-Twitter"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-3xl mr-4 hover:text-gray-400"
+            className="sm:text-3xl text-2xl sm:mr-4 mr-2 hover:text-gray-400"
           >
             <FaTwitter />
           </a>
@@ -146,7 +146,7 @@ const Header = (props) => {
             href="URL-de-LinkedIn"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-3xl hover:text-gray-400"
+            className="sm:text-3xl text-2xl hover:text-gray-400"
           >
             <FaLinkedin />
           </a>
