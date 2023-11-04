@@ -9,6 +9,7 @@ const Header = (props) => {
   const [opacity, setOpacity] = useState(1);
   const [isVisible, setIsVisible] = useState(true);
   const [isMouseOverHeader, setIsMouseOverHeader] = useState(false);
+  const [hasScrolled, setHasScrolled] = useState(false);
   let timeoutId = useRef(null);
 
   useEffect(() => {
@@ -34,10 +35,14 @@ const Header = (props) => {
       if (newOpacity < 0.7) newOpacity = 0.7;
       setOpacity(newOpacity);
       if (window.scrollY > 0) {
-        clearTimeout(timeoutId.current);
-        timeoutId.current = setTimeout(() => setIsVisible(false), 3000); // 3 seconds after the first scroll
+        setHasScrolled(true);
+        if (!isMouseOverHeader) {
+          clearTimeout(timeoutId.current);
+          timeoutId.current = setTimeout(() => setIsVisible(false), 1000);
+        }
       } else {
         clearTimeout(timeoutId.current);
+        setHasScrolled(false);
         setIsVisible(true);
       }
     };
@@ -48,7 +53,7 @@ const Header = (props) => {
       window.removeEventListener("scroll", handleScroll);
       clearTimeout(timeoutId.current);
     };
-  }, []);
+  }, [isMouseOverHeader]);
 
   const handleMouseMove = (e) => {
     const { top, bottom } = headerRef.current.getBoundingClientRect();
@@ -58,6 +63,10 @@ const Header = (props) => {
       setIsVisible(true);
     } else {
       setIsMouseOverHeader(false);
+      if (hasScrolled) {
+        clearTimeout(timeoutId.current);
+        timeoutId.current = setTimeout(() => setIsVisible(false), 1000);
+      }
     }
   };
 
@@ -67,7 +76,7 @@ const Header = (props) => {
     return () => {
       document.removeEventListener("mousemove", handleMouseMove);
     };
-  }, []);
+  }, [hasScrolled]);
 
   return (
     <Fragment>
