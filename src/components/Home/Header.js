@@ -90,28 +90,28 @@ const Header = (props) => {
         <div className="logo w-32">
           <img src={logo} alt="Logo" className="w-24 h-16 ml-12 " />
         </div>
-        <nav className="flex space-x-40">
+        <nav className="flex space-x-20 xl:space-x-40 lg:space-x-24">
           <a
             href="#home"
-            className="mr-4 font-sourceCodePro hover:text-gray-400 xl:visible xl:block hidden"
+            className="font-sourceCodePro hover:text-gray-400 lg:visible lg:block hidden"
           >
             Home
           </a>
           <a
             href="#about"
-            className="mr-4 font-sourceCodePro hover:text-gray-400 xl:visible xl:block hidden"
+            className="font-sourceCodePro hover:text-gray-400 lg:visible lg:block hidden"
           >
             About Us
           </a>
           <a
             href="#projects"
-            className="mr-4 font-sourceCodePro hover:text-gray-400 xl:visible xl:block hidden"
+            className="font-sourceCodePro hover:text-gray-400 lg:visible lg:block hidden"
           >
             Projects
           </a>
           <a
             href="#contact"
-            className="mr-4 font-sourceCodePro hover:text-gray-400 xl:visible xl:block hidden"
+            className="font-sourceCodePro hover:text-gray-400 lg:visible lg:block hidden"
           >
             Contact
           </a>
