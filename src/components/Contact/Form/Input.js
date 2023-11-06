@@ -116,7 +116,7 @@ const Input = ({
     "text-red-custom translate-x-[10px] translate-y-[-9px] text-[0.75em] px-[10px] bg-dark-custom border-l-[1px] border-red-custom border-r-[1px] tracking-[0.25em]";
 
   return (
-    <div className="mb-4 relative pt-4 w-full">
+    <div className="sm:mb-4 mb-2 relative mt-2 sm:mt-4 w-full">
       <label
         className={`${labelStyle} ${
           isFocused ? labelDynamic : isInvalid ? "text-red-custom" : "text-white"
@@ -136,7 +136,7 @@ const Input = ({
         ref={inputRef}
       />
       {isInvalid && (
-        <div className="absolute top-7 right-0 flex items-center pr-3">
+        <div className="absolute top-[13px] right-0 flex items-center pr-3">
           <FontAwesomeIcon
             icon={faExclamationCircle}
             className="text-red-custom text-xl" // Personaliza el tamaño y color según tus necesidades

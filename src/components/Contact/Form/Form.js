@@ -17,11 +17,11 @@ const Form = () => {
   const inputRef = useRef(null);
 
   const inputStyle =
-    "w-full p-[10px] outline-none border border-gray-custom bg-dark-custom text-white text-[1em]";
+    "min-w-[150px] xs:w-full p-[10px] outline-none border border-gray-custom bg-dark-custom text-white text-[1em]";
   const labelStyle =
     "absolute left-1 px-[10px] pointer-events-none duration-300 uppercase";
   const textareaStyle =
-    "w-full px-3 h-64 pt-2 outline-none border border-gray-custom bg-dark-custom text-white text-[1em] resize-none";
+    "min-w-[150px] xs:w-full px-3 h-64 pt-2 outline-none border border-gray-custom bg-dark-custom text-white text-[1em] resize-none";
 
   const dispatch = useDispatch();
   const buttonPressed = useSelector(state => state.form.buttonPressed);
@@ -118,12 +118,12 @@ const Form = () => {
   const pyClass = isFocused ? "py-[0px]" : "py-[10px]";
 
   const labelDynamic =
-    " text-red-custom translate-x-[10px] translate-y-[-9px] text-[0.75em] px-[10px] bg-dark-custom border-l-[1px] border-red-custom border-r-[1px] tracking-[0.25em]";
+    "text-red-custom translate-x-[10px] translate-y-[-9px] text-[0.75em] px-[10px] bg-dark-custom border-l-[1px] border-red-custom border-r-[1px] tracking-[0.25em]";
 
   return (
-    <div className="max-w-md mx-auto w-full flex flex-col">
+    <div className="md:max-w-md w-[65%] pl-4 pt-16 lg:pt-10 lg:pl-0 mx-auto flex flex-col">
       <form className="flex flex-col items-center" onSubmit={handleSubmit} noValidate>
-        <div className="h-[1px] bg-red-custom w-[65%] self-start"></div>{" "}
+        <div className="h-[1px] mb-2 bg-red-custom w-[65%] self-start"></div>{" "}
         {/* linea superior*/}
         <Input
           label="Nombre"
@@ -148,7 +148,7 @@ const Form = () => {
           isValid={setEmailValid}
 
         />
-        <div className="relative pt-4 pb-[10px] w-full">
+        <div className="relative md:mt-4 mt-2 pb-[10px] w-full">
           <label
             className={`${labelStyle} ${isFocused ? labelDynamic : isInvalid ? "text-red-custom" : "text-white"
               } ${pyClass}`}
@@ -167,7 +167,7 @@ const Form = () => {
             onFocus={focusHandler}
           ></textarea>
           {isInvalid && (
-            <div className="absolute top-7 right-0 flex items-center pr-3">
+            <div className="absolute top-[13px] right-0 flex items-center pr-3">
               <FontAwesomeIcon
                 icon={faExclamationCircle}
                 className="text-red-custom text-xl" // Personaliza el tamaño y color según tus necesidades
