@@ -2,7 +2,7 @@ import Reveal from "../UI/Reveal";
 
 const About = () => {
   return (
-    <section id="about" className="xl:h-screen h-fit lg:min-h-screen flex flex-col lg:flex-row bg-gray-custom relative">
+    <section id="about" className="lg:h-screen h-fit flex flex-col lg:flex-row bg-gray-custom relative">
       <div className="absolute top-8 bottom-0 left-8 md:left-14 bg-dark-custom w-1px"></div>
     {/* Línea horizontal */}
       <div className="absolute w-4/5 top-16 md:left-24 left-20 right-24 h-1px invisible sm:visible bg-dark-custom"></div>
