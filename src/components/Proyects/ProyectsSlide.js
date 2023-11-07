@@ -14,7 +14,7 @@ const ProyectsSlide = ({setCurrent}) => {
             {/* Línea horizontal */}
             <div className="absolute w-4/5 top-16 md:left-24 left-20 right-24 h-1px invisible sm:visible  bg-gray-custom"></div>
             <Reveal>
-                <h1 className="text-6xl absolute left-40 top-14 font-bold uppercase mt-10 ml-7 font-tungsten tracking-wider text-gray-custom" >Proyectos</h1>
+                <h1 className="lg:text-6xl text-5xl absolute left-1/2 -translate-x-2/4 lg:left-40 lg:translate-x-0 lg:top-14 font-bold uppercase mt-10 ml-7 font-tungsten tracking-wider text-gray-custom" >Proyectos</h1>
             </Reveal>
             
             <div className="absolute right-0 top-0 p-4 flex flex-col items-center bg-black bg-opacity-25 justify-center text-gray-custom hover:text-red-custom hover:bg-opacity-50 h-full transition-all ease-in-out duration-500 cursor-pointer" onClick={next}>
