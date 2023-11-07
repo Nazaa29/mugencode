@@ -18,7 +18,7 @@ const Reveal = (props) => {
         <motion.div
         ref={ref}
         variants={{
-            hidden: {opacity: 0, y:35},
+            hidden: {opacity: 0, y:10},
             vissible: {opacity:1, y:0}
         }}
         initial='hidden'

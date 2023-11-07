@@ -2,22 +2,18 @@ import Reveal from "../UI/Reveal";
 
 const About = () => {
   return (
-    <section id="about" className="relative flex align-middle justify-center p-8 bg-gray-custom h-fit md:h-screen md:min-h-[660px]">
-      {/* Línea vertical */}
-      <div className="absolute top-8 bottom-0 left-8 md:left-14 bg-black w-1px"></div>
-      {/* Línea horizontal */}
-      <div className="absolute md:top-16 top-14 md:left-24 left-16 right-24 bg-black h-1px"></div>
-
-      {/* Contenido */}
-      <div className="md:absolute md:left-40 md:top-24 ml-2 lg:w-7/12 w-8-12">
-        <div data-taos-offset="300"></div>
-        <Reveal>
-          <h1 className="md:text-6xl text-5xl text-center md:text-start font-bold uppercase md:mt-0 mt-10 font-tungsten tracking-wider animate-fade">
-            About Us
-          </h1>
-        </Reveal>
-
-        <p className="mt-4 ml-10 mr-10 md:mr-20 md:ml-0 sm:text-sm md:text-base text-xs  font-sourceCodePro">
+    <section id="about" className="xl:h-screen h-fit min-h-[790px] 2xl:max-h-[1080px] flex flex-col lg:flex-row bg-gray-custom relative">
+      <div className="absolute top-8 bottom-0 left-8 md:left-14 bg-dark-custom w-1px"></div>
+    {/* Línea horizontal */}
+      <div className="absolute w-4/5 top-16 md:left-24 left-20 right-24 h-1px invisible sm:visible bg-dark-custom"></div>
+      
+      <Reveal>
+        <h1 className="lg:text-6xl  text-5xl ml-2 mt-12 lg:mt-24 lg:ml-[182px] sm:mt-[100px] font-bold uppercase font-tungsten tracking-wider text-dark-custom text-center lg:text-start w-screen">
+          About Us
+        </h1>
+      </Reveal>
+        <div className="lg:absolute lg:w-[40%] mt-8 mb-20 ml-[84px]  mr-16 lg:top-36 lg:left-[96px]">
+        <p className="sm:text-sm md:text-base text-xs font-sourceCodePro">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem
           ipsum.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
@@ -36,7 +32,8 @@ const About = () => {
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem
           ipsum
         </p>
-      </div>
+        </div>
+        
     </section>
   );
 };

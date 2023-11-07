@@ -3,12 +3,12 @@ import Reveal from "../UI/Reveal";
 
 const Contact = () => {
   return (
-    <section id="contact" className="lg:h-screen min-h-[790px] flex bg-dark-custom relative">
+    <section id="contact" className="xl:h-screen h-fit min-h-[790px] flex bg-dark-custom relative">
       <div className="absolute top-8 bottom-0 left-8 md:left-14 bg-red-custom w-1px"></div>
       {/* Línea horizontal */}
-      <div className="absolute top-16 md:left-24 xs:ml-[0px] ml-[10px] left-16 right-24 h-1px invisible sm:visible bg-red-custom"></div>
+      <div className="absolute w-4/5 top-16 md:left-24 left-20 right-24 h-1px invisible sm:visible bg-red-custom"></div>
       <Reveal>
-        <h1 className="lg:text-6xl ml-4 mt-6 sm:mt-2 text-5xl absolute sm:top-24 top-10 font-bold uppercase font-tungsten tracking-wider text-gray-custom text-center lg:text-start w-full lg:left-40 lg:top-14 lg:mt-10 lg:ml-7">
+        <h1 className="lg:text-6xl text-5xl ml-2 mt-6 sm:mt-2 absolute sm:top-24 top-10 font-bold uppercase font-tungsten tracking-wider text-gray-custom text-center lg:text-start w-[300px] lg:left-40 lg:top-14 lg:mt-10 lg:ml-7">
           Contact Us
         </h1>
       </Reveal>
