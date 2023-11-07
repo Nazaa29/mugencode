@@ -23,7 +23,7 @@ const Button = () => {
   }, []);
 
   return (
-    <div className="w-[50%] relative buttonContainer mr-4">
+    <div className="w-[50%] relative buttonContainer self-center mr-6 sm:mr-4">
       {/* Agregada clase buttonContainer */}
       <button type="submit" className="button pt-[17px] pb-[17px] m-[10px] w-[100%] min-w-[100px] z-[2]" ref={buttonRef}>
         Send
