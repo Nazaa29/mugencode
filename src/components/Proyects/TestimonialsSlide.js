@@ -52,7 +52,7 @@ const TestimonialsSlide = ({ setCurrent }) => {
     }, []);
 
     return (
-        <section className="h-full relative w-screen lg:block lg:flex-col hidden">
+        <section className="h-full relative w-screen lg:flex lg:flex-col hidden">
             <div className="absolute top-8 bottom-0 right-16 bg-gray-custom w-[1px]"></div>
             {/* Línea horizontal */}
             <div className="absolute w-4/5 top-16 md:left-[84px] left-20 right-24 h-1px  bg-gray-custom"></div>

@@ -17,11 +17,11 @@ const Form = () => {
   const inputRef = useRef(null);
 
   const inputStyle =
-    "min-w-[150px] xs:w-full p-[10px] outline-none border border-gray-custom bg-dark-custom text-white text-[1em]";
+    "min-w-[185px] xs:w-full p-[10px] outline-none border border-gray-custom bg-dark-custom text-white text-[1em]";
   const labelStyle =
     "absolute left-1 px-[10px] pointer-events-none duration-300 uppercase";
   const textareaStyle =
-    "min-w-[150px] xs:w-full px-3 h-64 pt-2 outline-none border border-gray-custom bg-dark-custom text-white text-[1em] resize-none";
+    "min-w-[185px] xs:w-full px-3 h-64 pt-2 outline-none border border-gray-custom bg-dark-custom text-white text-[1em] resize-none";
 
   const dispatch = useDispatch();
   const buttonPressed = useSelector(state => state.form.buttonPressed);
@@ -122,7 +122,7 @@ const Form = () => {
 
   return (
     <div className="md:max-w-md w-[65%] pl-4 pt-16 lg:pt-10 lg:pl-0 mx-auto flex flex-col">
-      <form className="flex flex-col items-center" onSubmit={handleSubmit} noValidate>
+      <form className="flex flex-col items-center min-w-[185px]" onSubmit={handleSubmit} noValidate>
         <div className="h-[1px] mb-2 bg-red-custom w-[65%] self-start"></div>{" "}
         {/* linea superior*/}
         <Input
@@ -175,7 +175,7 @@ const Form = () => {
             </div>
           )}
         </div>
-        <div className="h-[1px] bg-red-custom w-[65%] self-end mb-6"></div>{" "}
+        <div className="h-[1px] bg-red-custom w-[65%] self-end mb-6"></div>
         {/* linea inferior*/}
         <Button onSubmit={handleSubmit} />
       </form>

@@ -25,11 +25,11 @@ const Button = () => {
   return (
     <div className="w-[50%] relative buttonContainer self-center mr-6 sm:mr-4">
       {/* Agregada clase buttonContainer */}
-      <button type="submit" className="button pt-[17px] pb-[17px] m-[10px] w-[100%] min-w-[100px] z-[2]" ref={buttonRef}>
+      <button type="submit" className="button lg:pt-[17px] lg:pb-[17px] pt-3 pb-3 ml-[9.5px] m-[10px] w-[100%] min-w-[100px] z-[2]" ref={buttonRef}>
         Send
       </button>
       <svg className="rect w-[110%] h-[80px]" style={ {minWidth: widthButton} }>
-        <rect x="0" y="0" fill="none" width="100%"  className="h-[78px] z-[1]"/>
+        <rect x="0" y="0" fill="none" width="100%"  className="lg:h-[78px] h-[68px] z-[1]"/>
       </svg>
     </div>
   );
