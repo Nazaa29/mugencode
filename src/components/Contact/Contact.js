@@ -3,7 +3,7 @@ import Reveal from "../UI/Reveal";
 
 const Contact = () => {
   return (
-    <section id="contact" className="xl:h-screen h-fit min-h-[790px] flex bg-dark-custom relative">
+    <section id="contact" className="xl:h-screen min-h-[690px] md:min-h-[790px] lg:min-h-[810px]: flex bg-dark-custom relative">
       <div className="absolute top-8 bottom-0 left-8 md:left-14 bg-red-custom w-1px"></div>
       {/* Línea horizontal */}
       <div className="absolute w-4/5 top-16 md:left-24 left-20 right-24 h-1px invisible sm:visible bg-red-custom"></div>
@@ -13,7 +13,7 @@ const Contact = () => {
         </h1>
       </Reveal>
 
-      <div className="absolute sm:top-[53%] top-[44%] 2xl:top-[57%] left-1/2 transform -translate-x-1/2 mt-10 xl:mt-4 -translate-y-1/2 w-full felx flex-col">
+      <div className="absolute sm:top-[53%] top-[50%] 2xl:top-[57%] left-1/2 transform -translate-x-1/2 mt-10 xl:mt-4 -translate-y-1/2 w-full felx flex-col">
         <Form />
       </div>
     </section>

@@ -20,7 +20,7 @@ const Modal = () => {
     }
 
     return show && (
-        <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-75" onClick={onClose}>
+        <div className="fixed inset-0 flex items-center font-workSans justify-center z-50 bg-black bg-opacity-75" onClick={onClose}>
             <div className="bg-gray-custom w-300 rounded shadow-md relative text-center align-middle w-[35%]" onClick={handleModalClick}>
             <div className={`${modalCheck ? 'bg-dark-custom' : 'bg-red-custom'} p-2 rounded-t h-36 flex justify-center items-center`}>
                     <span onClick={onClose} className="absolute top-2 right-2 cursor-pointer text-gray-custom transition-all hover:text-black">

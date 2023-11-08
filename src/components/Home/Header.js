@@ -87,6 +87,7 @@ const Header = (props) => {
         }}
       ></div>
       <header
+        id="home"
         className={`fixed top-0 w-full text-white py-2 px-8 flex items-center justify-between font-workSans tracking-wide border-red-custom transition-opacity border-b-[3px] duration-500 z-50 ${
           isVisible ? "opacity-100" : "opacity-0"
         }`}
@@ -101,7 +102,7 @@ const Header = (props) => {
         </div>
         <nav className="flex space-x-20 xl:space-x-40 lg:space-x-24">
           <a
-            href="#home"
+            href="#"
             className="hover:text-gray-400 lg:visible lg:block hidden"
           >
             Home

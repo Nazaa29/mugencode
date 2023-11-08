@@ -6,7 +6,6 @@ const Home = (props) => {
 
   return (
     <section
-      id="home"
       className="w-full flex bg-dark-custom justify-center items-center relative"
       style={{ height: dynamicHeight, minHeight: 270}}
     >

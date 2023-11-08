@@ -2,6 +2,7 @@ import Testimonial from "./Testimonial";
 import perfil1 from '../../assets/images/foto-perfil-1.png'
 import perfil2 from '../../assets/images/perfil2.jpg'
 import { useState, useEffect } from "react";
+import RevealHorizontal from "../UI/RevealHorizontal";
 
 const TestimonialsSlide = ({ setCurrent }) => {
     const buttonText = 'PROYECTOS';
@@ -52,11 +53,13 @@ const TestimonialsSlide = ({ setCurrent }) => {
     }, []);
 
     return (
-        <section className="h-full relative w-screen lg:flex lg:flex-col hidden">
+        <section className="h-full relative w-screen lg:flex lg:flex-col lg:visible hidden">
             <div className="absolute top-8 bottom-0 right-16 bg-gray-custom w-[1px]"></div>
             {/* Línea horizontal */}
             <div className="absolute w-4/5 top-16 md:left-[84px] left-20 right-24 h-1px  bg-gray-custom"></div>
-                <h1 className="lg:text-6xl text-4xl absolute left-1/2 -translate-x-2/4 lg:left-40 top-10 lg:translate-x-0 lg:top-14 font-bold uppercase mt-10 ml-7 font-tungsten tracking-wider text-gray-custom">Testimonios</h1>
+            <RevealHorizontal>
+            <h1 className="lg:text-6xl text-4xl absolute left-1/2 -translate-x-2/4 lg:left-40 top-10 lg:translate-x-0 lg:top-14 font-bold uppercase mt-10 ml-7 font-tungsten tracking-wider text-gray-custom">Testimonios</h1>
+            </RevealHorizontal> 
             <div className="absolute left-0 top-0 font-workSans p-4 flex flex-col items-center bg-black bg-opacity-25 justify-center text-gray-custom hover:text-red-custom hover:bg-opacity-50 h-full transition-all ease-in-out duration-500 cursor-pointer invisible lg:visible" onClick={prev}>
                 {buttonLetters.map((letter, index) => (
                     <div key={index} className="m-3">
@@ -64,7 +67,7 @@ const TestimonialsSlide = ({ setCurrent }) => {
                     </div>
                 ))}
             </div>
-            <ul className="flex mt-10 h-[400px] w-[1000px] overflow-hidden absolute translate-x-[-48%] left-[50%] bottom-[20%]">
+            <ul className="flex mt-10 h-[400px] w-[1000px] overflow-hidden absolute translate-x-[-48%] left-[50%] bottom-[15%]">
                 {testimonials.map((testimonial, index) => (
                     <Testimonial
                         currentTestimonial={currentTestimonial}
@@ -76,7 +79,7 @@ const TestimonialsSlide = ({ setCurrent }) => {
                     />
                 ))}
             </ul>
-            <ul className="flex absolute bottom-32 left-[50%] translate-x-[-50%]">
+            <ul className="flex absolute bottom-24 left-[50%] translate-x-[-50%]">
                 {testimonials.map((_, index) => (
                     <li className={`rounded-full w-4 h-4 bg-gray-custom m-4 cursor-pointer  ${currentTestimonial === index ? 'bg-red-custom' : ''}`}
                         onClick={() => setCurrentTestimonial(index)}
