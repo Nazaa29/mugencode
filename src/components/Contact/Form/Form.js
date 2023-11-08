@@ -123,7 +123,7 @@ const Form = () => {
   return (
     <div className="md:max-w-md w-[65%] pl-4 pt-16 lg:pt-10 lg:pl-0 mx-auto flex flex-col">
       <form className="flex flex-col items-center min-w-[185px]" onSubmit={handleSubmit} noValidate>
-        <div className="h-[1px] mb-2 bg-red-custom w-[65%] self-start"></div>{" "}
+        <div className="h-[1px] mb-2 bg-red-custom w-[65%] self-start"></div>
         {/* linea superior*/}
         <Input
           label="Nombre"
@@ -175,7 +175,7 @@ const Form = () => {
             </div>
           )}
         </div>
-        <div className="h-[1px] bg-red-custom w-[65%] self-end mb-6"></div>
+        <div className="h-[1.5px] bg-red-custom w-[65%] self-end mb-6"></div>
         {/* linea inferior*/}
         <Button onSubmit={handleSubmit} />
       </form>

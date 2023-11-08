@@ -10,6 +10,7 @@ import { useEffect } from "react";
 import { Provider } from "react-redux";
 import store from "./store";
 import Modal from "./components/UI/Modal";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   const [headerHeight, setHeaderHeight] = useState(0);
@@ -33,6 +34,7 @@ function App() {
       <Contact />
       <Modal/>
       </Provider>
+      <Footer/>
     </Fragment>
   );
 }

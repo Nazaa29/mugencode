@@ -87,7 +87,7 @@ const Header = (props) => {
         }}
       ></div>
       <header
-        className={`fixed top-0 w-full text-white py-2 px-8 flex items-center justify-between border-red-custom transition-opacity border-b-[3px] duration-500 z-50 ${
+        className={`fixed top-0 w-full text-white py-2 px-8 flex items-center justify-between font-workSans tracking-wide border-red-custom transition-opacity border-b-[3px] duration-500 z-50 ${
           isVisible ? "opacity-100" : "opacity-0"
         }`}
         ref={headerRef}
@@ -102,25 +102,25 @@ const Header = (props) => {
         <nav className="flex space-x-20 xl:space-x-40 lg:space-x-24">
           <a
             href="#home"
-            className="font-sourceCodePro hover:text-gray-400 lg:visible lg:block hidden"
+            className="hover:text-gray-400 lg:visible lg:block hidden"
           >
             Home
           </a>
           <a
             href="#about"
-            className="font-sourceCodePro hover:text-gray-400 lg:visible lg:block hidden"
+            className="hover:text-gray-400 lg:visible lg:block hidden"
           >
             About Us
           </a>
           <a
             href="#projects"
-            className="font-sourceCodePro hover:text-gray-400 lg:visible lg:block hidden"
+            className="hover:text-gray-400 lg:visible lg:block hidden"
           >
             Projects
           </a>
           <a
             href="#contact"
-            className="font-sourceCodePro hover:text-gray-400 lg:visible lg:block hidden"
+            className="hover:text-gray-400 lg:visible lg:block hidden"
           >
             Contact
           </a>
