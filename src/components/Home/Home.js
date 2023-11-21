@@ -22,8 +22,8 @@ const Home = (props) => {
         <div className="flex flex-col items-start ml-6">
           <h1 className="tituloFalopa sm:text-6xl md:text-8xl tracking-wider text-4xl star">mugencode</h1>
           <div className="flex flex-col items-start">
-            <div className="ml-12 w-28 h-[3px] mt-2 rounded bg-red-custom my-2"></div>
-            <div className="ml-24 w-28 h-[3px] mt-1 rounded bg-red-custom"></div>
+            <div className="ml-12 w-[150px] h-[3px] mt-2 rounded bg-red-custom my-2"></div>
+            <div className="ml-28 w-[150px] h-[3px] mt-1 rounded bg-red-custom"></div>
           </div>
           <div className="ml-6 sm:text-xl text-lg font-medium font-sourceCodePro mt-2 text-gray-custom">   
             <p>we are&nbsp;

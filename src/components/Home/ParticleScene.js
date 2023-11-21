@@ -53,7 +53,7 @@ const ParticleScene = () => {
             distance: 150,
             enable: true,
             opacity: 0.2,
-            width:1
+            width:2
           },
           collisions:{
             enale: true,
@@ -76,7 +76,7 @@ const ParticleScene = () => {
             value: 160
           },
           opacity:{
-            value:0.7
+            value:1
           },
           shape:{
             type:'circle'
