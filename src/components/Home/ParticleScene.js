@@ -1,63 +1,93 @@
-import React, { useEffect, useRef } from "react";
-import * as THREE from "three";
+import { useCallback} from "react";
+import Particles from 'react-tsparticles'
+import {loadFull} from 'tsparticles'
 
 const ParticleScene = () => {
-  const containerRef = useRef();
+    const particlesInit = useCallback(async (engine) =>{
+      await loadFull(engine);
+    },[]);
 
-  useEffect(() => {
-    const container = containerRef.current;
-    let width = container.offsetWidth;
-    let height = container.offsetHeight;
+    const particlesLoaded = useCallback(async () => {
 
-    // Crear escena, cámara y renderizador
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-    renderer.setClearColor(0x000000, 0); // El segundo argumento es la transparencia, 0 es totalmente transparente
-    renderer.setSize(width, height);
-    container.appendChild(renderer.domElement);
+    }, [])
 
-    // Crear geometría y material, luego mesh
-    const geometry = new THREE.BoxGeometry();
-    const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-    const cube = new THREE.Mesh(geometry, material);
-    scene.add(cube);
-
-    // Posicionar la cámara
-    camera.position.z = 5;
-
-    // Función de animación
-    const animate = () => {
-      requestAnimationFrame(animate);
-      cube.rotation.x += 0.01;
-      cube.rotation.y += 0.01;
-      renderer.render(scene, camera);
-    };
-
-    // Función para actualizar el tamaño
-    const updateSize = () => {
-      width = container.offsetWidth;
-      height = container.offsetHeight;
-      renderer.setSize(width, height);
-      camera.aspect = width / height;
-      camera.updateProjectionMatrix();
-    };
-
-    // Escuchar el evento de cambio de tamaño de la ventana
-    window.addEventListener("resize", updateSize);
-
-    animate();
-
-    return () => {
-      // Limpiar en desmontaje
-      window.removeEventListener("resize", updateSize);
-      renderer.dispose();
-      geometry.dispose();
-      material.dispose();
-    };
-  }, []);
-
-  return <div ref={containerRef} style={{ width: "100%", height: "100%" }} />;
+    return (
+      <Particles id='tsparticles' init={particlesInit} loaded={particlesLoaded}
+      className="w-full h-full absolute translate-z-0"
+      options={{
+        fullScreen: {enable: false},
+        background: {
+          color:{
+            value: ''
+          }
+        },
+        fps_limit:144,
+        interactivity:{
+          events:{
+            onClick:{
+              enable: false,
+              mode: 'push'
+            },
+            onHover:{
+              enable:true,
+              mode: 'repulse'
+            },
+            resize: true,
+          },
+          modes: {
+            push: {
+              quantity:90
+            },
+            repulse: {
+              distance:100,
+              duration: 0.4,
+            }
+          },
+        },
+        particles: {
+          color: {
+            value: '#DDDDDD',
+          },
+          links:{
+            color: '#DDDDDD',
+            distance: 150,
+            enable: true,
+            opacity: 0.2,
+            width:1
+          },
+          collisions:{
+            enale: true,
+          },
+          move:{
+            directions: 'none',
+            enable:true,
+            outModes:{
+              default:'bounce'
+            },
+            random: false,
+            speed: 1,
+            straight: false
+          },
+          number:{
+            density: {
+              enable:true,
+              area:800
+            },
+            value: 160
+          },
+          opacity:{
+            value:0.7
+          },
+          shape:{
+            type:'circle'
+          },
+          size:{
+            value:{min:1, max:5},
+          }
+        },
+        detectRetina:true,
+      }}/>
+    )
 };
 
 export default ParticleScene;

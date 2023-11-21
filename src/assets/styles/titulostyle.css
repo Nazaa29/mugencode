@@ -1,0 +1,11 @@
+@font-face {
+    font-family: 'Star Jedi Hollow';
+    src: url("../../../public/Starwarsfont/@font-face/Starjhol.ttf")
+}
+
+.tituloFalopa {
+    color: white;
+    -webkit-text-stroke: 1.5px black;
+    font-family: 'Star Jedi Hollow';
+}
+
