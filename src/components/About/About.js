@@ -14,7 +14,7 @@ const About = () => {
             About Us
           </h1>
         </Reveal>
-        <div className="lg:w-[40%] flex flex-col lg:flex-row mt-8 mb-20 ml-[181px] h-fit mr-16 lg:top-36 lg:left-[96px]">
+        <div className="lg:w-[40%] flex flex-col lg:flex-row mt-8 mb-20 ml-20 sm:ml-24 lg:ml-[181px] h-fit mr-16 lg:top-36 lg:left-[96px]">
           <p className="sm:text-sm text-xs xl:text-base font-sourceCodePro">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem
