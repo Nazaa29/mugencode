@@ -1,12 +1,28 @@
 import Reveal from "../UI/Reveal";
+import BarraHabilidad from "./BarraHabilidad";
+import iconoJS from "../../assets/images/javascript.png";
+import iconoReact from "../../assets/images/reactjs.png";
+import iconoMDB from "../../assets/images/mongodb.png";
 
 const About = () => {
-  const tecnologias = ['Tecnologia1', 'Tecnologia2', 'Tecnologia3'];
+  const habilidades = [
+    { nombre: "JavaScript", nivel: 80, icono: iconoJS },
+    { nombre: "React", nivel: 60, icono: iconoReact },
+    { nombre: "MongoDB", nivel: 60, icono: iconoMDB },
+    { nombre: "MongoDB", nivel: 60, icono: iconoMDB },
+    { nombre: "MongoDB", nivel: 60, icono: iconoMDB },
+    { nombre: "MongoDB", nivel: 60, icono: iconoMDB },
+    { nombre: "MongoDB", nivel: 60, icono: iconoMDB },
+    { nombre: "MongoDB", nivel: 60, icono: iconoMDB },
+  ];
 
   return (
-    <section id="about" className=" h-min[h-fit] xl:h-screen flex flex-col lg:flex-row bg-gray-custom relative">
+    <section
+      id="about"
+      className=" h-min[h-fit] xl:h-screen flex flex-col lg:flex-row bg-gray-custom relative"
+    >
       <div className="absolute top-8 bottom-0 left-8 md:left-14 bg-dark-custom w-1px"></div>
-    {/* Línea horizontal */}
+      {/* Línea horizontal */}
       <div className="absolute w-4/5 top-16 md:left-24 left-20 right-24 h-1px invisible sm:visible bg-dark-custom"></div>
       <div>
         <Reveal>
@@ -18,8 +34,8 @@ const About = () => {
           <p className="sm:text-sm text-xs xl:text-base font-sourceCodePro">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem
-            ipsum.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem
+            ipsum.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+            do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem
             ipsumLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem
             ipsumLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
@@ -34,15 +50,17 @@ const About = () => {
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem
             ipsum
           </p>
-          <ul>
-            {tecnologias.map((tecnologias,index) => (
-              <li key={index}>{tecnologias}</li>
+        </div>
+        <div className="contenedor-habilidades">
+          <ul className="lista-habilidades">
+            {habilidades.map((habilidad, index) => (
+              <li key={index} className="elemento-lista-habilidades w-1/2">
+                <BarraHabilidad habilidad={habilidad} />
+              </li>
             ))}
           </ul>
         </div>
       </div>
-      
-        
     </section>
   );
 };
