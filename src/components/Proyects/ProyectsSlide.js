@@ -18,9 +18,7 @@ const ProyectsSlide = ({ setCurrent }) => {
           Proyectos
         </h1>
       </Reveal>
-      <div>
-        <ProjectsCarousel />
-      </div>
+      <ProjectsCarousel />
       <div
         className="absolute right-0 top-0 p-4 flex flex-col font-workSans items-center bg-black bg-opacity-25 justify-center text-gray-custom hover:text-red-custom hover:bg-opacity-50 h-full transition-all ease-in-out duration-500 cursor-pointer invisible lg:visible"
         onClick={next}

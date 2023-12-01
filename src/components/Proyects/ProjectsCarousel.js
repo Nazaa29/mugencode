@@ -8,33 +8,30 @@ import { FaGlobe } from "react-icons/fa";
 
 // Componente individual para cada proyecto
 const Proyecto = ({ datos }) => (
-  <div className="relative bg-dark-custom shadow-[4px_4px_10px_0px_rgba(0,0,0,0.4)] mx-auto w-[200px] h-[400px] sm:w-[300px] sm:h-[500px]">
+  <div className="relative bg-dark-custom shadow-[4px_4px_10px_0px_rgba(0,0,0,0.4)] mb-3 mx-auto w-[200px] h-[400px] sm:w-[300px] sm:h-[500px]">
     <img
       src={datos.imagenUrl}
       alt={datos.nombre}
-      className="w-full object-cover border-b-2 border-red-custom h-[100px]"
+      className="w-full object-cover border-b-2 border-red-custom h-[150px]"
     />
     <div className="p-4">
-      <div className="flex items-center justify-between">
-        <h3 className="text-xl font-semibold tracking-wider text-gray-custom">
+      <div className="flex items-center mt-2 justify-between">
+        <p className="text-gray-custom text-xl mr-2 whitespace-nowrap font-semibold tracking-wider">
           {datos.nombre}
-        </h3>
+        </p>
+
+        <div className="w-[60%] h-0 mt-2 border-t-[1px] border-t-red-custom"></div>
         <a
           href={datos.enlaceSitio}
-          className="text-2xl text-gray-custom hover:text-red-custom duration-300"
+          className="text-gray-custom text-2xl mt-1 ml-2 hover:text-gray-400 duration-300"
         >
           <FaGlobe />
         </a>
       </div>
-      <p className="text-red-custom mt-2">{datos.tecnologias}</p>
-      <p className="text-base text-gray-custom mt-4">{datos.descripcion}</p>
-      <div className="absolute bottom-4 left-4 right-4">
-        <a
-          href={datos.enlaceSitio}
-          className="text-[12px] text-red-custom hover:underline"
-        >
-          Visitenos &gt;
-        </a>
+      <p className="text-red-custom mt-4">{datos.tecnologias}</p>
+      <div className="mt-4 ">
+        <span className="text-base text-gray-custom">{datos.descripcion}</span>
+        <a href="www.vacacay.com" className="ml-2 text-red-custom text-base hover:underline">Visitenos &gt;</a>
       </div>
     </div>
     <p className="absolute bottom-2 right-2 text-[10px] text-gray-custom">
