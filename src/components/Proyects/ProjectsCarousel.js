@@ -156,11 +156,11 @@ const ProjectsCarousel = () => {
       </Slider>
       <style jsx global>{`
         .slick-dots li button:before {
-          font-size: 12px; /* Tamaño original, ajústalo más grande según necesites */
-          color: #fff; /* o cualquier color que prefieras */
+          font-size: 17px; /* Tamaño original, ajústalo más grande según necesites */
+          color: #dddddd; /* o cualquier color que prefieras */
         }
         .slick-dots li.slick-active button:before {
-          color: #ff0000;
+          color: #f05454;
         }
         .slick-dots {
           bottom: -30px;
