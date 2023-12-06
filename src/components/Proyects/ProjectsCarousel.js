@@ -24,7 +24,7 @@ const Proyecto = ({ datos }) => {
   const isSmallScreen = width < 640; // sm breakpoint
 
   return (
-    <div className="relative bg-dark-custom shadow-[4px_4px_10px_0px_rgba(0,0,0,0.4)] mb-3 mx-auto w-[200px] h-[400px] md:w-[350px] md:h-[550px] sm:w-[300px] sm:h-[500px] xl:w-[382px] xl:h-[582px]">
+    <div className="relative bg-dark-custom shadow-[4px_4px_10px_0px_rgba(0,0,0,0.4)] mb-3 mx-auto w-[200px] h-[400px] md:w-[350px] md:h-[500px] sm:w-[300px] sm:h-[500px] xl:w-[382px] xl:h-[582px]">
       <img
         src={datos.imagenUrl}
         alt={datos.nombre}
