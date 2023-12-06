@@ -1,5 +1,5 @@
 import Reveal from "../UI/Reveal";
-import ProjectsCarousel from "./ProjectsCarousel";
+import ProyectoSwiper from "./ProyectoSwiper";
 
 const ProyectsSlide = ({ setCurrent }) => {
   const buttonText = "TESTIMONIOS";
@@ -10,7 +10,7 @@ const ProyectsSlide = ({ setCurrent }) => {
   };
 
   return (
-    <section className="flex w-full relative h-full">
+    <section className="w-full relative h-full">
       <div className="absolute top-8 bottom-0 left-8 md:left-14 bg-gray-custom w-[1px]"></div>
       <div className="absolute w-4/5 top-16 md:left-24 left-20 right-24 h-1px invisible sm:visible bg-gray-custom"></div>
       <Reveal>
@@ -18,6 +18,7 @@ const ProyectsSlide = ({ setCurrent }) => {
           Proyectos
         </h1>
       </Reveal>
+      <ProyectoSwiper/>
       
       <div
         className="absolute right-0 top-0 p-4 flex flex-col font-workSans items-center bg-black bg-opacity-25 justify-center text-gray-custom hover:text-red-custom hover:bg-opacity-50 h-full transition-all ease-in-out duration-500 cursor-pointer invisible lg:visible"

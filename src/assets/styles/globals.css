@@ -59,3 +59,24 @@ body {
     border-color: #ff0000; /* Color del borde cuando es inválido */
   }
 }
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: #F05454;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  opacity: 0.5;
+}
+
+.swiper-pagination-bullet {
+  width: 10px; /* Ancho del dot */
+  height: 10px; /* Altura del dot */
+  background-color: #999; /* Color del dot inactivo */
+  margin: 0 5px; /* Margen entre los dots */
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #F05454; /* Color del dot activo */
+}
