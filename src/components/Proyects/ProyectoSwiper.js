@@ -1,10 +1,10 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import IconoReact from "../../assets/images/reactjs.png";
 import IconoJS from "../../assets/images/javascript.png";
 import { FaGlobe } from "react-icons/fa";
-import { Navigation, Pagination} from 'swiper/modules';
+import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css/bundle';
 
 export default function ProyectoSwiper() {
@@ -61,56 +61,82 @@ export default function ProyectoSwiper() {
         },
     ];
 
+    const [slidesPerView, setSlidesPerView] = useState(2);
+
+    useEffect(() => {
+        const handleResize = () => {
+            // Ajustar el número de slides por vista en función del tamaño de la pantalla
+            if (window.innerWidth < 640) {
+                setSlidesPerView(1);
+            } else {
+                setSlidesPerView(2);
+            }
+        };
+
+        // Escuchar cambios en el tamaño de la pantalla
+        window.addEventListener('resize', handleResize);
+
+        // Ajustar el número inicial de slides por vista al cargar la página
+        handleResize();
+
+        // Limpiar el event listener al desmontar el componente
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
     return (
         <Swiper
-        modules={[Navigation, Pagination]}
-            spaceBetween={0}
-            slidesPerView={2}
+            modules={[Navigation, Pagination]}
+            spaceBetween={10}
+            slidesPerView={
+                slidesPerView
+            }
             navigation
             pagination={{ clickable: true }}
-            style={{ width: '70%', height:" 75%", margin: 'auto', }}
+            style={{ width: '70%', height: " 75%", margin: 'auto', }}
             onSlideChange={() => console.log('slide change')}
             onSwiper={(swiper) => console.log(swiper)}
         >
             {proyectos.map((proyecto, index) => (
                 <SwiperSlide>
-                <div key={index} className="mt-10 relative bg-dark-custom shadow-[4px_4px_10px_0px_rgba(0,0,0,0.4)] w-[61%] h-[85%] mb-3 mx-auto ">
-                    <img
-                        src={proyecto.imagenUrl}
-                        alt={proyecto.nombre}
-                        className="w-full object-cover border-b-2 border-red-custom h-[150px] xl:h-[200px]"
-                    />
-                    <div className="p-4">
-                        <div className="flex items-center justify-between">
-                            <p className="text-gray-custom text-lg sm:text-xl lg:text-base xl:text-xl mr-2 whitespace-nowrap font-semibold tracking-wider mb-1 sm:mb-2">
-                                {proyecto.nombre}
+                    <div key={index} className="mt-10 relative bg-dark-custom shadow-[4px_4px_10px_0px_rgba(0,0,0,0.4)] w-[61%] h-[85%] mb-3 mx-auto ">
+                        <img
+                            src={proyecto.imagenUrl}
+                            alt={proyecto.nombre}
+                            className="w-full object-cover border-b-2 border-red-custom h-[150px] xl:h-[200px]"
+                        />
+                        <div className="p-4">
+                            <div className="flex items-center justify-between">
+                                <p className="text-gray-custom text-lg sm:text-xl lg:text-base xl:text-xl mr-2 whitespace-nowrap font-semibold tracking-wider mb-1 sm:mb-2">
+                                    {proyecto.nombre}
+                                </p>
+                                <div className="w-[60%] h-0 mt-1 sm:mt-2 border-t-[1px] border-t-red-custom"></div>
+                                <a
+                                    href={proyecto.enlaceSitio}
+                                    className="text-gray-custom text-xl mt-1 ml-2 hover:text-gray-400 duration-300"
+                                >
+                                    <FaGlobe />
+                                </a>
+                            </div>
+                            <p className="text-red-custom text-sm sm:text-base lg:text-base xl:text-xl mb-1 sm:mb-2">
+                                {proyecto.tecnologias}
                             </p>
-                            <div className="w-[60%] h-0 mt-1 sm:mt-2 border-t-[1px] border-t-red-custom"></div>
-                            <a
-                                href={proyecto.enlaceSitio}
-                                className="text-gray-custom text-xl mt-1 ml-2 hover:text-gray-400 duration-300"
-                            >
-                                <FaGlobe />
-                            </a>
+                            <div className="mt-1 sm:mt-2">
+                                <span className="text-sm sm:text-base lg:text-base xl:text-xl text-gray-custom mb-1 sm:mb-2">
+                                </span>
+                                <a
+                                    href={proyecto.enlace}
+                                    className="ml-2 text-red-custom text-sm sm:text-base hover:underline"
+                                >
+                                    Visítenos &gt;
+                                </a>
+                            </div>
                         </div>
-                        <p className="text-red-custom text-sm sm:text-base lg:text-base xl:text-xl mb-1 sm:mb-2">
-                            {proyecto.tecnologias}
+                        <p className="absolute bottom-2 right-2 text-[8px] sm:text-[10px] xl:text-[12px] text-gray-custom">
+                            Powered by MUGENCODE
                         </p>
-                        <div className="mt-1 sm:mt-2">
-                            <span className="text-sm sm:text-base lg:text-base xl:text-xl text-gray-custom mb-1 sm:mb-2">
-                            </span>
-                            <a
-                                href={proyecto.enlace}
-                                className="ml-2 text-red-custom text-sm sm:text-base hover:underline"
-                            >
-                                Visítenos &gt;
-                            </a>
-                        </div>
                     </div>
-                    <p className="absolute bottom-2 right-2 text-[8px] sm:text-[10px] xl:text-[12px] text-gray-custom">
-                        Powered by MUGENCODE
-                    </p>
-                </div>
                 </SwiperSlide>
             ))}
         </Swiper>
