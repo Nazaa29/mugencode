@@ -64,17 +64,17 @@ export default function ProyectoSwiper() {
     return (
         <Swiper
         modules={[Navigation, Pagination]}
-            spaceBetween={10}
+            spaceBetween={0}
             slidesPerView={2}
             navigation
             pagination={{ clickable: true }}
-            style={{ width: '70%', height:" 80%", margin: 'auto', }}
+            style={{ width: '70%', height:" 75%", margin: 'auto', }}
             onSlideChange={() => console.log('slide change')}
             onSwiper={(swiper) => console.log(swiper)}
         >
             {proyectos.map((proyecto, index) => (
                 <SwiperSlide>
-                <div key={index} className="mt-12 relative bg-dark-custom shadow-[4px_4px_10px_0px_rgba(0,0,0,0.4)] w-[61%] h-[80%] mb-3 mx-auto ">
+                <div key={index} className="mt-10 relative bg-dark-custom shadow-[4px_4px_10px_0px_rgba(0,0,0,0.4)] w-[61%] h-[85%] mb-3 mx-auto ">
                     <img
                         src={proyecto.imagenUrl}
                         alt={proyecto.nombre}
