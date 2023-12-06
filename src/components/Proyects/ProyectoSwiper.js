@@ -88,27 +88,27 @@ export default function ProyectoSwiper() {
     return (
         <Swiper
             modules={[Navigation, Pagination]}
-            spaceBetween={10}
+            spaceBetween={0}
             slidesPerView={
                 slidesPerView
             }
             navigation
             pagination={{ clickable: true }}
-            style={{ width: '70%', height: " 75%", margin: 'auto', }}
+            style={{ width: '70%', height: " 77%", margin: 'auto', }}
             onSlideChange={() => console.log('slide change')}
             onSwiper={(swiper) => console.log(swiper)}
         >
             {proyectos.map((proyecto, index) => (
                 <SwiperSlide>
-                    <div key={index} className="mt-10 relative bg-dark-custom shadow-[4px_4px_10px_0px_rgba(0,0,0,0.4)] w-[61%] h-[85%] mb-3 mx-auto ">
+                    <div key={index} className="mt-8 relative bg-dark-custom shadow-[4px_4px_10px_0px_rgba(0,0,0,0.4)] w-[58%] h-[87%] mb-3 mx-auto ">
                         <img
                             src={proyecto.imagenUrl}
                             alt={proyecto.nombre}
                             className="w-full object-cover border-b-2 border-red-custom h-[150px] xl:h-[200px]"
                         />
                         <div className="p-4">
-                            <div className="flex items-center justify-between">
-                                <p className="text-gray-custom text-lg sm:text-xl lg:text-base xl:text-xl mr-2 whitespace-nowrap font-semibold tracking-wider mb-1 sm:mb-2">
+                            <div className="flex items-center mb-3 justify-between">
+                                <p className="text-gray-custom text-xl mr-2 whitespace-nowrap font-semibold tracking-wider">
                                     {proyecto.nombre}
                                 </p>
                                 <div className="w-[60%] h-0 mt-1 sm:mt-2 border-t-[1px] border-t-red-custom"></div>
@@ -119,17 +119,18 @@ export default function ProyectoSwiper() {
                                     <FaGlobe />
                                 </a>
                             </div>
-                            <p className="text-red-custom text-sm sm:text-base lg:text-base xl:text-xl mb-1 sm:mb-2">
+                            <p className="text-red-custom text-base font-semibold mb-3">
                                 {proyecto.tecnologias}
                             </p>
                             <div className="mt-1 sm:mt-2">
-                                <span className="text-sm sm:text-base lg:text-base xl:text-xl text-gray-custom mb-1 sm:mb-2">
+                                <span className="text-base text-gray-custom pb-2">
+                                    {proyecto.descripcion}
                                 </span>
                                 <a
                                     href={proyecto.enlace}
-                                    className="ml-2 text-red-custom text-sm sm:text-base hover:underline"
+                                    className="ml-2 text-red-custom text-base hover:underline"
                                 >
-                                    Visítenos &gt;
+                                    Visitenos &gt;
                                 </a>
                             </div>
                         </div>
