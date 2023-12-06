@@ -24,7 +24,7 @@ const About = () => {
   return (
     <section
       id="about"
-      className=" h-min[h-fit] xl:h-screen flex flex-col lg:flex-row bg-gray-custom relative"
+      className=" h-min[h-fit] flex flex-col lg:flex-row bg-gray-custom relative"
     >
       <div className="absolute top-8 bottom-0 left-8 md:left-14 bg-dark-custom w-1px"></div>
       {/* Línea horizontal */}
