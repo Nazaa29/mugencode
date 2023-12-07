@@ -9,7 +9,7 @@ const Projects = () => {
     <div className="h-fit w-full overflow-hidden relative">
       <div
         id="projects"
-        className="h-fit w-[100%] min-h-[700px] lg:w-[200%] bg-teal-custom grid grid-cols-1 lg:grid-cols-2 gap-0 transition-transform ease-out duration-500"
+        className="h-fit w-[100%] lg:w-[200%] bg-teal-custom grid grid-cols-1 lg:grid-cols-2 gap-0 transition-transform ease-out duration-500"
         style={{ transform: `translateX(-${current * 50}%)` }}
       >
         <ProyectsSlide setCurrent={setCurrent} />

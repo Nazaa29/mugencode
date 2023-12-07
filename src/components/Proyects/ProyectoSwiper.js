@@ -83,15 +83,15 @@ export default function ProyectoSwiper() {
       if (window.innerWidth < 640) {
         setSlidesPerView(1);
         setArrow(false);
-        setSwiperHeight("73%"); // Ajusta la altura deseada
+        setSwiperHeight("70%"); // Ajusta la altura deseada
       } else if (window.innerWidth < 1024) {
         setSlidesPerView(1);
         setArrow(true);
-        setSwiperHeight("82%"); // Ajusta la altura deseada
+        setSwiperHeight("67%"); // Ajusta la altura deseada
       } else {
         setSlidesPerView(2);
         setArrow(true);
-        setSwiperHeight("82%"); // Ajusta la altura deseada
+        setSwiperHeight("80%"); // Ajusta la altura deseada
       }
     };
 
@@ -107,11 +107,11 @@ export default function ProyectoSwiper() {
   return (
     <Swiper
       modules={[Navigation, Pagination]}
-      spaceBetween={0}
+      spaceBetween={-30}
       slidesPerView={slidesPerView}
       navigation={arrow}
       pagination={{ clickable: true }}
-      style={{ width: "70%", height: swiperHeight, margin: "auto"}}
+      style={{ width: swiperHeight, height: "82%", margin: "auto"}}
       onSlideChange={() => console.log("slide change")}
       onSwiper={(swiper) => console.log(swiper)}
     >
@@ -119,12 +119,12 @@ export default function ProyectoSwiper() {
         <SwiperSlide>
           <div
             key={index}
-            className="mt-8 relative min-w-[160px] bg-dark-custom shadow-[4px_4px_10px_0px_rgba(0,0,0,0.4)] w-80 h-[34rem] mb-3 mx-auto "
+            className="mt-8 relative min-w-[160px] bg-dark-custom shadow-[4px_4px_10px_0px_rgba(0,0,0,0.4)] sm:w-80 w-48 h-[26rem] sm:h-[34rem] mx-auto "
           >
             <img
               src={proyecto.imagenUrl}
               alt={proyecto.nombre}
-              className="w-full object-cover border-b-2 border-red-custom h-[150px] xl:h-[200px]"
+              className="w-full object-cover border-b-2 border-red-custom h-[150px] lg:h-[200px]"
             />
             <div className="p-4">
               <div className="flex items-center mb-3 justify-between">
