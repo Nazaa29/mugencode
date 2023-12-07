@@ -10,7 +10,7 @@ const ProyectsSlide = ({ setCurrent }) => {
   };
 
   return (
-    <section className="w-full relative h-full">
+    <section className="w-full relative h-full sm:pb-12">
       <div className="absolute top-8 bottom-0 left-8 md:left-14 bg-gray-custom w-[1px]"></div>
       <div className="absolute w-4/5 top-16 md:left-24 left-20 right-24 h-1px invisible sm:visible bg-gray-custom"></div>
       <Reveal>

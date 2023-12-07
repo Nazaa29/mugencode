@@ -74,6 +74,8 @@ export default function ProyectoSwiper() {
 
   const [slidesPerView, setSlidesPerView] = useState(2);
   const [arrow, setArrow] = useState(true);
+  const [swiperHeight, setSwiperHeight] = useState("82%");
+
 
   useEffect(() => {
     const handleResize = () => {
@@ -81,12 +83,15 @@ export default function ProyectoSwiper() {
       if (window.innerWidth < 640) {
         setSlidesPerView(1);
         setArrow(false);
+        setSwiperHeight("73%"); // Ajusta la altura deseada
       } else if (window.innerWidth < 1024) {
         setSlidesPerView(1);
         setArrow(true);
+        setSwiperHeight("82%"); // Ajusta la altura deseada
       } else {
         setSlidesPerView(2);
         setArrow(true);
+        setSwiperHeight("82%"); // Ajusta la altura deseada
       }
     };
 
@@ -106,7 +111,7 @@ export default function ProyectoSwiper() {
       slidesPerView={slidesPerView}
       navigation={arrow}
       pagination={{ clickable: true }}
-      style={{ width: "70%", height: " 77%", margin: "auto" }}
+      style={{ width: "70%", height: swiperHeight, margin: "auto"}}
       onSlideChange={() => console.log("slide change")}
       onSwiper={(swiper) => console.log(swiper)}
     >
@@ -114,7 +119,7 @@ export default function ProyectoSwiper() {
         <SwiperSlide>
           <div
             key={index}
-            className="mt-8 relative max-w-[300px] min-w-[160px] bg-dark-custom shadow-[4px_4px_10px_0px_rgba(0,0,0,0.4)] w-[58%] lg:w-[68%] h-[87%] mb-3 mx-auto "
+            className="mt-8 relative max-w-[280px] min-w-[160px] bg-dark-custom shadow-[4px_4px_10px_0px_rgba(0,0,0,0.4)] w-[58%] lg:w-[68%] h-[82%] sm:h-[85%] mb-3 mx-auto "
           >
             <img
               src={proyecto.imagenUrl}
