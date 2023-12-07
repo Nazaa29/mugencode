@@ -1,10 +1,26 @@
 import Form from "./Form/Form";
 import Reveal from "../UI/Reveal";
+import React, { useState, useEffect } from "react";
 
 const Contact = () => {
+  const [showVerticalLine, setShowVerticalLine] = useState(
+    window.innerWidth > 768
+  );
+
+  useEffect(() => {
+    const handleResize = () => setShowVerticalLine(window.innerWidth > 640);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
   return (
-    <section id="contact" className="h-min[h-fit] xl:h-screen bg-dark-custom relative">
-      <div className="absolute top-8 bottom-0 left-8 md:left-14 bg-red-custom w-1px"></div>
+    <section
+      id="contact"
+      className="h-min[h-fit] xl:h-screen bg-dark-custom relative"
+    >
+      <div
+        className="absolute top-8 bottom-0 left-8 md:left-14 bg-red-custom w-1px"
+        style={{ display: showVerticalLine ? "block" : "none" }}
+      ></div>
       {/* Línea horizontal */}
       <div className="absolute w-4/5 top-16 md:left-24 left-20 right-24 h-1px invisible sm:visible bg-red-custom"></div>
       <Reveal>

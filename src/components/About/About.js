@@ -1,5 +1,6 @@
 import Reveal from "../UI/Reveal";
 import BarraHabilidad from "./BarraHabilidad";
+import React, { useState, useEffect } from "react";
 import iconoJS from "../../assets/images/javascript.png";
 import iconoReact from "../../assets/images/reactjs.png";
 import iconoMDB from "../../assets/images/mongodb.png";
@@ -10,6 +11,15 @@ import iconoHTML from "../../assets/images/html.png";
 import iconoG from "../../assets/images/gaming.png";
 
 const About = () => {
+  const [showVerticalLine, setShowVerticalLine] = useState(
+    window.innerWidth > 640
+  );
+
+  useEffect(() => {
+    const handleResize = () => setShowVerticalLine(window.innerWidth > 768);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
   const habilidades = [
     { nombre: "JavaScript", nivel: 90, icono: iconoJS },
     { nombre: "React", nivel: 70, icono: iconoReact },
@@ -26,7 +36,10 @@ const About = () => {
       id="about"
       className=" h-min[h-fit] flex flex-col lg:flex-row bg-gray-custom relative pb-8"
     >
-      <div className="absolute top-8 bottom-0 left-8 md:left-14 bg-dark-custom w-1px"></div>
+      <div
+        className="absolute top-8 bottom-0 left-8 md:left-14 bg-dark-custom w-1px"
+        style={{ display: showVerticalLine ? "block" : "none" }}
+      ></div>
       {/* Línea horizontal */}
       <div className="absolute w-4/5 top-16 md:left-24 left-20 right-24 h-1px invisible sm:visible bg-dark-custom"></div>
       <div>
