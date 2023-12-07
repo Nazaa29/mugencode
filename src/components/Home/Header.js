@@ -83,7 +83,7 @@ const Header = (props) => {
       <div
         style={{
           height: `${headerHeight}px`,
-          backgroundColor: `rgba(34, 40, 49, 1)`,
+          backgroundColor: `rgba(0.09, 0.09, 0.09, 1)`,
         }}
       ></div>
       <header
@@ -93,7 +93,7 @@ const Header = (props) => {
         }`}
         ref={headerRef}
         style={{
-          backgroundColor: `rgba(34, 40, 49, ${opacity})`,
+          backgroundColor: `rgba(0.09, 0.09, 0.09, 0.5)`,
           transition: "opacity 0.5s ease-in-out",
         }}
       >

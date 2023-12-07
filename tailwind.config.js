@@ -24,9 +24,9 @@ module.exports = {
         "50%": "50%",
         "7/12": "58.333333%",
       },
-      zoom: {
-        '125': '1.25',
-      },
+      backgroundImage: (theme) => ({
+        'imagen-fondo': "url('/src/assets/images/wallpaper.jpg')",
+      }),
       padding: {
         "15px": "15px",
       },
@@ -69,7 +69,6 @@ module.exports = {
         sourceCodePro: ["Source Code Pro"],
       },
       boxShadow: {},
-      backgroundImage: {},
       screens: {
         xs: "",
       },

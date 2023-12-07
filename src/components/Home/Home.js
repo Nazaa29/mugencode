@@ -2,6 +2,7 @@ import React from "react";
 import ParticleScene from "./ParticleScene";
 import { useTypewriter, Cursor } from "react-simple-typewriter";
 import '../../assets/styles/titulostyle.css'
+import background from '../../assets/images/wallpaper.jpg'
 
 const Home = (props) => {
   const dynamicHeight = `calc(100vh - ${props.headerHeight}px)`;
@@ -12,7 +13,7 @@ const Home = (props) => {
 
   return (
     <section
-      className="w-full flex bg-dark-custom justify-center items-center relative"
+      className="w-full flex bg-imagen-fondo justify-center items-center relative"
       style={{ height: dynamicHeight, minHeight: 270}}
     >
       <div className="w-full h-full hidden lg:visible lg:block relative flex-shrink-0">
