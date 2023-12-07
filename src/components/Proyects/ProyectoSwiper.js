@@ -74,7 +74,7 @@ export default function ProyectoSwiper() {
 
   const [slidesPerView, setSlidesPerView] = useState(2);
   const [arrow, setArrow] = useState(true);
-  const [swiperHeight, setSwiperHeight] = useState("82%");
+  const [swiperWidth, setSwiperWidth] = useState("82%");
 
 
   useEffect(() => {
@@ -83,15 +83,19 @@ export default function ProyectoSwiper() {
       if (window.innerWidth < 640) {
         setSlidesPerView(1);
         setArrow(false);
-        setSwiperHeight("70%"); // Ajusta la altura deseada
+        setSwiperWidth("72%"); // Ajusta la altura deseada
       } else if (window.innerWidth < 1024) {
         setSlidesPerView(1);
         setArrow(true);
-        setSwiperHeight("67%"); // Ajusta la altura deseada
-      } else {
+        setSwiperWidth("67%"); // Ajusta la altura deseada
+      } else if (window.innerWidth > 1536) {
         setSlidesPerView(2);
         setArrow(true);
-        setSwiperHeight("80%"); // Ajusta la altura deseada
+        setSwiperWidth("60%"); // Ajusta la altura deseada
+      }else {
+        setSlidesPerView(2);
+        setArrow(true);
+        setSwiperWidth("80%");
       }
     };
 
@@ -107,11 +111,11 @@ export default function ProyectoSwiper() {
   return (
     <Swiper
       modules={[Navigation, Pagination]}
-      spaceBetween={-30}
+      spaceBetween={40}
       slidesPerView={slidesPerView}
       navigation={arrow}
       pagination={{ clickable: true }}
-      style={{ width: swiperHeight, height: "82%", margin: "auto"}}
+      style={{ width: swiperWidth, height: "82%", margin: "auto", paddingLeft:"20px", paddingRight:"20px"}}
       onSlideChange={() => console.log("slide change")}
       onSwiper={(swiper) => console.log(swiper)}
     >
@@ -119,7 +123,7 @@ export default function ProyectoSwiper() {
         <SwiperSlide>
           <div
             key={index}
-            className="mt-8 relative min-w-[160px] bg-dark-custom shadow-[4px_4px_10px_0px_rgba(0,0,0,0.4)] sm:w-80 w-48 h-[26rem] sm:h-[34rem] mx-auto "
+            className="mt-8 relative min-w-[160px] bg-dark-custom shadow-[4px_4px_10px_0px_rgba(0,0,0,0.4)] sm:w-80 w-[70%] h-[26rem] sm:h-[34rem] mx-auto "
           >
             <img
               src={proyecto.imagenUrl}

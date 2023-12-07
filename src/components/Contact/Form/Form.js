@@ -121,7 +121,7 @@ const Form = () => {
     "text-red-custom translate-x-[10px] translate-y-[-9px] text-[0.75em] px-[10px] bg-dark-custom border-l-[1px] border-red-custom border-r-[1px] tracking-[0.25em]";
 
   return (
-    <div className="md:max-w-md w-[65%] pl-4 pt-16 lg:pt-4 xl:pl-0 mx-auto flex flex-col">
+    <div className="md:max-w-md w-[65%] pt-16 lg:pt-4 mx-auto flex flex-col">
       <form className="flex flex-col items-center min-w-[185px]" onSubmit={handleSubmit} noValidate>
         <div className="h-[1px] mb-2 bg-red-custom w-[65%] self-start"></div>
         {/* linea superior*/}

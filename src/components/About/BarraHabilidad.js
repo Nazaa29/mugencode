@@ -32,7 +32,7 @@ const BarraHabilidad = ({ habilidad }) => {
   }, [isVisible, habilidad.nivel]);
 
   return (
-    <div className="xl:mt-7 ml-16 xl:ml-0 md:ml-24 sm:ml-20 lg:ml-[181px] flex items-center justify-start mb-4 contenedor-habilidad">
+    <div className="xl:mt-7 ml-12 xl:ml-0 md:ml-24 sm:ml-20 lg:ml-[181px] mr-2 flex items-center justify-start mb-4 contenedor-habilidad">
       <div className="icono-habilidad sm:mr-2.5 mr-1 flex mt-3">
         <img
           className="sm:w-11 sm:h-11 w-9 h-9 object-contain"
