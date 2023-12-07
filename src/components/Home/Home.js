@@ -20,7 +20,7 @@ const Home = (props) => {
         <ParticleScene />
       </div>
       <div className="z-10 absolute inset-0 flex flex-col justify-center items-center">
-        <div className="flex flex-col items-start">
+        <div className="flex flex-col items-start ml-6">
           <h1 className="tituloFalopa sm:text-6xl md:text-8xl tracking-wider text-4xl star">mugencode</h1>
           <div className="flex flex-col items-start">
             <div className="md:ml-12 ml-4 w-16 md:w-[150px] h-[3px] mt-3 sm:mt-6 xl:mb-1 rounded bg-red-custom my-2"></div>

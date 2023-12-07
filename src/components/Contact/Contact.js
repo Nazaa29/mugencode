@@ -15,7 +15,7 @@ const Contact = () => {
   return (
     <section
       id="contact"
-      className="h-fit pb-6 bg-dark-custom relative"
+      className="h-min[h-fit] xl:h-screen bg-dark-custom relative"
     >
       <div
         className="absolute top-8 bottom-0 left-8 md:left-14 bg-red-custom w-1px"

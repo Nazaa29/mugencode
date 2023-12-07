@@ -50,7 +50,7 @@ const About = () => {
         </Reveal>
 
         <div className="xl:flex">
-          <div className="xl:w-[48%] lg:w-[64%] flex flex-col lg:flex-row mt-8 mb-8 ml-12 sm:ml-24 lg:ml-[181px] h-fit xl:mr-10 mr-12 lg:top-36 lg:left-[96px] 2xl:mt-10">
+          <div className="xl:w-[48%] lg:w-[64%] flex flex-col lg:flex-row mt-8 mb-8 ml-20 sm:ml-24 lg:ml-[181px] h-fit xl:mr-10 mr-16 lg:top-36 lg:left-[96px] 2xl:mt-10">
             <p className="sm:text-sm text-xs xl:text-base font-sourceCodePro 2xl:text-[18px]">
               Hola, soy [Tu Nombre], un apasionado y dedicado desarrollador Full
               Stack con experiencia en crear soluciones web eficientes y

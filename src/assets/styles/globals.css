@@ -71,14 +71,12 @@ body {
 }
 
 .swiper-pagination-bullet {
-  width: 15px; /* Ancho del dot */
-  height: 15px; /* Altura del dot */
-  background-color: #DDDDDD;
-  opacity: 0.6; /* Color del dot inactivo */
-  margin: 0 15px; /* Margen entre los dots */
+  width: 10px; /* Ancho del dot */
+  height: 10px; /* Altura del dot */
+  background-color: #999; /* Color del dot inactivo */
+  margin: 0 5px; /* Margen entre los dots */
 }
 
 .swiper-pagination-bullet-active {
-  background-color: #F05454;
-  opacity: 1; /* Color del dot activo */
+  background-color: #F05454; /* Color del dot activo */
 }

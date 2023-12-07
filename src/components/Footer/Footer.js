@@ -18,7 +18,7 @@ export default function Footer() {
         className="absolute top-0 bottom-[84.5px] sm:bottom-[89px] md:sm:bottom-[92px] left-8 md:left-14 bg-red-custom w-1px"
         style={{ display: showVerticalLine ? "block" : "none" }}
       ></div>
-      <p className="w-screen border-b-[1px] text-xs sm:text-base  border-b-red-custom pt-8 lg:pr-2 pb-4 bg-dark-custom text-gray-custom font-workSans text-center">
+      <p className="w-screen border-b-[1px] text-xs pl-3 sm:pl-0 sm:text-base  border-b-red-custom pt-8 lg:pr-2 pb-4 bg-dark-custom text-gray-custom font-workSans text-center">
         contact@mugencode.com
       </p>
       <RevealHorizontal>

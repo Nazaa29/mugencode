@@ -83,8 +83,8 @@ const Header = (props) => {
       <div
         style={{
           height: `${headerHeight}px`,
+          backgroundColor: `rgba(0.09, 0.09, 0.09, 1)`,
         }}
-        className=" bg-imagen-fondo"
       ></div>
       <header
         id="home"
