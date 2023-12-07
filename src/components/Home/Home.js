@@ -25,7 +25,7 @@ const Home = (props) => {
             <div className="md:ml-12 ml-4 w-16 md:w-[150px] h-[3px] mt-3 sm:mt-6 xl:mb-1 rounded bg-red-custom my-2"></div>
             <div className="md:ml-28 ml-10 w-16 md:w-[150px] h-[3px] mt-1 sm:mt-3 sm:mb-3 rounded bg-red-custom"></div>
           </div>
-          <div className="ml-6 sm:text-xl text-lg font-medium font-sourceCodePro mt-2 text-gray-custom">   
+          <div className="ml-6 sm:text-xl text-base font-medium font-sourceCodePro mt-2 text-gray-custom">   
             <p>we are&nbsp;
               <span className="text-red-custom font-medium font-sourceCodePro">{text}</span>
               <Cursor/>
