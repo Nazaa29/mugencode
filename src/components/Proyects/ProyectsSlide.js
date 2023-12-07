@@ -8,7 +8,7 @@ const ProyectsSlide = ({ setCurrent }) => {
   );
 
   useEffect(() => {
-    const handleResize = () => setShowVerticalLine(window.innerWidth > 768);
+    const handleResize = () => setShowVerticalLine(window.innerWidth > 640);
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);

@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 
 const Contact = () => {
   const [showVerticalLine, setShowVerticalLine] = useState(
-    window.innerWidth > 768
+    window.innerWidth > 640
   );
 
   useEffect(() => {
