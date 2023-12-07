@@ -119,7 +119,7 @@ export default function ProyectoSwiper() {
         <SwiperSlide>
           <div
             key={index}
-            className="mt-8 relative max-w-[280px] min-w-[160px] bg-dark-custom shadow-[4px_4px_10px_0px_rgba(0,0,0,0.4)] w-[58%] lg:w-[68%] h-[82%] sm:h-[85%] mb-3 mx-auto "
+            className="mt-8 relative min-w-[160px] bg-dark-custom shadow-[4px_4px_10px_0px_rgba(0,0,0,0.4)] w-80 h-[34rem] mb-3 mx-auto "
           >
             <img
               src={proyecto.imagenUrl}
