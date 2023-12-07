@@ -114,7 +114,7 @@ export default function ProyectoSwiper() {
         <SwiperSlide>
           <div
             key={index}
-            className="mt-8 relative max-w-[300px] min-w-[150px] bg-dark-custom shadow-[4px_4px_10px_0px_rgba(0,0,0,0.4)] w-[58%] lg:w-[68%] h-[87%] mb-3 mx-auto "
+            className="mt-8 relative max-w-[300px] min-w-[160px] bg-dark-custom shadow-[4px_4px_10px_0px_rgba(0,0,0,0.4)] w-[58%] lg:w-[68%] h-[87%] mb-3 mx-auto "
           >
             <img
               src={proyecto.imagenUrl}
@@ -145,9 +145,9 @@ export default function ProyectoSwiper() {
                 </span>
                 <a
                   href={proyecto.enlace}
-                  className="ml-2 text-red-custom text-sm sm:text-base hover:underline"
+                  className="whitespace-nowrap text-red-custom text-sm sm:text-base hover:underline"
                 >
-                  Visitenos &gt;
+                  &nbsp;Visitenos &gt;
                 </a>
               </div>
             </div>
