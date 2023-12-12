@@ -21,14 +21,14 @@ const ProyectsSlide = ({ setCurrent }) => {
   };
 
   return (
-    <section className="w-full relative h-full mb-20 sm:pb-12">
+    <section className="w-full relative lg:h-screen h-fit mb-12 sm:mb-0 sm:pb-12">
       <div
-        className="absolute top-8 bottom-0 left-8 md:left-14 bg-gray-custom w-[1px]"
+        className="absolute top-6  bottom-0 left-8 md:left-14 bg-gray-custom w-[1px]"
         style={{ display: showVerticalLine ? "block" : "none" }}
       ></div>
-      <div className="absolute w-4/5 top-16 md:left-24 left-20 right-24 h-1px invisible sm:visible bg-gray-custom"></div>
+      <div className="absolute w-4/5 top-12 md:left-24 left-20 right-24 h-1px invisible sm:visible bg-gray-custom"></div>
       <Reveal>
-        <h1 className="lg:text-6xl  sm:text-5xl text-4xl  mt-12 lg:mt-24 lg:ml-[182px] sm:mt-[100px] font-bold uppercase font-tungsten tracking-wider text-gray-custom text-center lg:text-start w-screen">
+        <h1 className="lg:text-6xl sm:text-5xl text-4xl  mt-12 lg:mt-20 lg:ml-[132px] sm:mt-[100px] font-bold uppercase font-tungsten tracking-wider text-gray-custom text-center lg:text-start w-screen">
           Proyectos
         </h1>
       </Reveal>

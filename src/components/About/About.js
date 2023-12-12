@@ -28,30 +28,29 @@ const About = () => {
     { nombre: "CSS", nivel: 90, icono: iconoCSS },
     { nombre: "Tailwind", nivel: 60, icono: iconoTW },
     { nombre: "HTML", nivel: 100, icono: iconoHTML },
-    { nombre: "Gaming", nivel: 100, icono: iconoG },
   ];
 
   return (
     <section
       id="about"
-      className=" h-min[h-fit] flex flex-col lg:flex-row bg-gray-custom relative pb-8"
+      className="h-fit xl:max-h-screen flex flex-col lg:flex-row bg-gray-custom relative pb-8"
     >
       <div
-        className="absolute top-8 bottom-0 left-8 md:left-14 bg-dark-custom w-1px"
+        className="absolute top-6 bottom-0 left-8 md:left-14 bg-dark-custom w-1px"
         style={{ display: showVerticalLine ? "block" : "none" }}
       ></div>
       {/* Línea horizontal */}
-      <div className="absolute w-4/5 top-16 md:left-24 left-20 right-24 h-1px invisible sm:visible bg-dark-custom"></div>
+      <div className="absolute w-4/5 top-12 md:left-24 left-20 right-24 h-1px invisible sm:visible bg-dark-custom"></div>
       <div>
         <Reveal>
-          <h1 className="lg:text-6xl  sm:text-5xl text-4xl  mt-12 lg:mt-24 lg:ml-[182px] sm:mt-[100px] font-bold uppercase font-tungsten tracking-wider text-dark-custom text-center lg:text-start w-screen">
+          <h1 className="lg:text-6xl sm:text-5xl text-4xl  mt-12 lg:mt-20 lg:ml-[132px] sm:mt-[100px] font-bold uppercase font-tungsten tracking-wider text-dark-custom text-center lg:text-start w-screen">
             About Us
           </h1>
         </Reveal>
 
-        <div className="xl:flex">
-          <div className="xl:w-[48%] lg:w-[64%] flex flex-col lg:flex-row mt-8 mb-8 ml-20 sm:ml-24 lg:ml-[181px] h-fit xl:mr-10 mr-16 lg:top-36 lg:left-[96px] 2xl:mt-10">
-            <p className="sm:text-sm text-xs xl:text-base font-sourceCodePro 2xl:text-[18px]">
+        <div className="xl:flex items-center h-[80%]">
+          <div className="xl:w-[52%] lg:w-[74%] lg:flex-row mt-8 mb-8 ml-14 sm:ml-24 lg:ml-[132px] xl:mr-10 mr-12 lg:top-36 lg:left-[96px] lg:mb-0 2xl:mt-0 2xl:mb-0">
+            <p className="sm:text-sm text-xs xl:text-[2vh] font-sourceCodePro">
               Hola, soy [Tu Nombre], un apasionado y dedicado desarrollador Full
               Stack con experiencia en crear soluciones web eficientes y
               atractivas. Me especializo en el stack MERN, que incluye MongoDB,
@@ -84,8 +83,8 @@ const About = () => {
               pasión por crear soluciones digitales excepcionales.
             </p>
           </div>
-          <div className="xl:w-[20%] 2xl:w-[25%]">
-            <ul className="lista-habilidades">
+          <div className="xl:w-[20%] mb-10 2xl:w-[25%]">
+            <ul className="">
               {habilidades.map((habilidad, index) => (
                 <li key={index} className="elemento-lista-habilidades">
                   <BarraHabilidad habilidad={habilidad} />

@@ -119,44 +119,44 @@ export default function ProyectoSwiper() {
         <SwiperSlide>
           <div
             key={index}
-            className="mt-8 relative min-w-[160px] bg-dark-custom shadow-[4px_4px_10px_0px_rgba(0,0,0,0.4)] sm:w-80 w-48 h-[26rem] sm:h-[34rem] mx-auto "
+            className="mt-8 relative min-w-[160px] bg-dark-custom shadow-[4px_4px_10px_0px_rgba(0,0,0,0.4)] sm:w-80 w-48 h-[26rem] sm:h-[34rem] lg:h-[68vh] lg:w-[20vw] mx-auto "
           >
             <img
               src={proyecto.imagenUrl}
               alt={proyecto.nombre}
-              className="w-full object-cover border-b-2 border-red-custom h-[150px] lg:h-[200px]"
+              className="w-full object-cover border-b-2 border-red-custom h-[20%] lg:h-[35%]"
             />
             <div className="p-4">
               <div className="flex items-center mb-3 justify-between">
-                <p className="text-gray-custom text-lg sm:text-xl mr-2 whitespace-nowrap font-semibold tracking-wider">
+                <p className="text-gray-custom text-[2vh] sm:text-[2.5vh] mr-2 whitespace-nowrap font-semibold tracking-wider">
                   {proyecto.nombre}
                 </p>
                 <div className="w-[60%] hidden lg:visible lg:flex h-0 mt-1 border-t-[1px] border-t-red-custom"></div>
                 <a
                   href={proyecto.enlaceSitio}
-                  className="text-gray-custom text-lg sm:text-xl ml-2 hover:text-gray-400 duration-300"
+                  className="text-gray-custom text-[2vh] sm:text-[2.5vh] ml-2 hover:text-gray-400 duration-300"
                 >
                   <FaGlobe />
                 </a>
               </div>
-              <p className="text-red-custom text-sm sm:text-base font-semibold mb-3">
+              <p className="text-red-custom text-[1.7vh] sm:text-[2vh] font-semibold mb-3">
                 {proyecto.tecnologias}
               </p>
               <div className="mt-1 sm:mt-2">
-                <span className="text-sm sm:text-base text-gray-custom pb-2">
+                <span className="text-[1.7vh] sm:text-[2vh] text-gray-custom pb-2">
                   {isLargeScreen
                     ? proyecto.descripcion
                     : proyecto.descripcionCorta}
                 </span>
                 <a
                   href={proyecto.enlace}
-                  className="whitespace-nowrap text-red-custom text-sm sm:text-base hover:underline"
+                  className="whitespace-nowrap text-red-custom text-[1.7vh] sm:text-[2vh] hover:underline"
                 >
                   &nbsp;Visitenos &gt;
                 </a>
               </div>
             </div>
-            <p className="absolute bottom-2 right-2 text-[8px] sm:text-[10px] xl:text-[12px] text-gray-custom">
+            <p className="absolute bottom-2 right-2 text-[1.3vh] sm:text-[1.5vh] text-gray-custom">
               Powered by MUGENCODE
             </p>
           </div>
