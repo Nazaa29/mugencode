@@ -71,8 +71,8 @@ body {
 }
 
 .swiper-pagination-bullet {
-  width: 15px; /* Ancho del dot */
-  height: 15px; /* Altura del dot */
+  width: 13px; /* Ancho del dot */
+  height: 13px; /* Altura del dot */
   background-color: #999; /* Color del dot inactivo */
   margin: 0 5px; /* Margen entre los dots */
 }
