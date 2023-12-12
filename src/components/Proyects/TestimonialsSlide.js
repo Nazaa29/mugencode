@@ -67,7 +67,7 @@ const TestimonialsSlide = ({ setCurrent }) => {
                     </div>
                 ))}
             </div>
-            <ul className="flex mt-10 h-[400px] w-[1000px] overflow-hidden absolute translate-x-[-48%] left-[50%] bottom-[15%]">
+            <ul className="flex min-h-[400px] h-[40vh] min-w-[1000px] w-[54vw] overflow-hidden absolute translate-x-[-48%] left-[50%] bottom-[45%] translate-y-[50%]">
                 {testimonials.map((testimonial, index) => (
                     <Testimonial
                         currentTestimonial={currentTestimonial}
@@ -79,7 +79,7 @@ const TestimonialsSlide = ({ setCurrent }) => {
                     />
                 ))}
             </ul>
-            <ul className="flex absolute bottom-24 left-[50%] translate-x-[-50%]">
+            <ul className="flex absolute bottom-[17%] translate-y-[50%] left-[50%] translate-x-[-50%]">
                 {testimonials.map((_, index) => (
                     <li className={`rounded-full w-4 h-4 bg-gray-custom m-4 cursor-pointer  ${currentTestimonial === index ? 'bg-red-custom' : ''}`}
                         onClick={() => setCurrentTestimonial(index)}

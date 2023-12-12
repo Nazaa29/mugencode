@@ -21,7 +21,7 @@ const ProyectsSlide = ({ setCurrent }) => {
   };
 
   return (
-    <section className="w-full relative lg:h-screen h-fit mb-12 sm:mb-0 sm:pb-12">
+    <section className="w-full relative min-h-fit xl:h-screen h-fit pb-4 sm:pb-6">
       <div
         className="absolute top-6  bottom-0 left-8 md:left-14 bg-gray-custom w-[1px]"
         style={{ display: showVerticalLine ? "block" : "none" }}
